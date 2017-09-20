@@ -1,0 +1,5 @@
+# 
+git add .
+
+# diff bewteen two files 
+git diff <version1_hash> <version2_hash> -- file_path
