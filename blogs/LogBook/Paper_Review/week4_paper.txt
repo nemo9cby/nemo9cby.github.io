@@ -1,7 +1,0 @@
-Analyzing the State of Static Analysis: A Large-Scale Evaluation in Open Source Software
-
-The configuration of static code analyzer;
-maybe replace this idea with Log-related configuration files?
-How do people use logging library?
-Do they change default settings? Why?
-
