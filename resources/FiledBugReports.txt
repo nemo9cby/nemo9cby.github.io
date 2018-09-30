@@ -1,0 +1,28 @@
+---------------------------------------------------------------
+Resolved/Accepted
+---------------------------------------------------------------
+YARN-5507 supercedes YARN-5508 (RESOLVED) & YARN-5511(RESOLVED)
+CAMEL-10263 RESOLVED
+HADOOP-13484 Developer fix available
+HADOOP-13485 Developer fix available
+HDFS-10752 RESOLVED
+CLOUDSTACK-9465 Pull request submitted under review
+Tomcat-60012 RESOLVED
+HBASE-16469 Patch available (Patch under review)
+MNG-6081 RESLOVED & CLOSED
+
+---------------------------------------------------------------
+Under Review or Discussion
+---------------------------------------------------------------
+MAPREDUCE-6752 OPEN (under discussion)
+MAPREDUCE-6753 OPEN 
+HADOOP-13486 OPEN (under discussion) 
+AMQ-6398 OPEN (Patch under review)
+GWT-9403 OPEN
+ARGOUML-6520 OPEN
+
+---------------------------------------------------------------
+Rejected
+---------------------------------------------------------------
+JEdit-4013 INVALID (Do not accept static analysis results)
+YARN-5506 CLOSED (This is a invalid bug, developer intentionally did this)
