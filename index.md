@@ -8,11 +8,11 @@ layout: home
 <table width="700" border="0" align="center" cellspacing="0" cellpadding="0" style="border: none;border-collapse: collapse;">
 <tr>
                   <td width="20%" style="border: none;">
-                  <img margin-left="10%" src="/resources/IMG_0724.jpg" alt="Boyuan's Photo" width="200px" />
+                  <img margin-left="10%" src="/resources/Boyuan_Chen.jpg" alt="Boyuan's Photo" width="200px" />
                   </td>
 
                   <td width="60%" align="left" style="border: none;">
-<p>I am a research associate at <a href="https://www.eecs.yorku.ca">Department of EECS</a> at <a href="https://www.yorku.ca">York University</a> in Canada.</p>
+<p>I am a PhD student at <a href="https://www.eecs.yorku.ca">Department of EECS</a> at <a href="https://www.yorku.ca">York University</a> in Canada.</p>
 
 <p>This is my blog for logging my research thoughts, sharing technical articles.
 
