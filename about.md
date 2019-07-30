@@ -1,10 +1,12 @@
 ---
 layout: page
-title: About
-permalink: /about/
+title: Publications
+permalink: /Publications/
 ---
 
-You can find more academy-related information about me at [here](https://www.eecs.yorku.ca/~chenfsd).
+# You can find more academy-related information about me at [here](https://www.eecs.yorku.ca/~chenfsd).
+
+* ICSE 2019: Improving the software logging practices in DevOps 
 
 <!---
 This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
