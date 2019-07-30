@@ -2,6 +2,7 @@
 layout:post
 title: 'Our paper gets accepted at ICSE 2019 Doctoral Symposium Track'
 date: 2019-01-18
+categories: news
 tags:research
 ---
 
