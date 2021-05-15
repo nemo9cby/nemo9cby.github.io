@@ -12,13 +12,12 @@ layout: home
                   </td>
 
                   <td width="60%" align="left" style="border: none;">
-<p>I am a PhD student at <a href="https://www.eecs.yorku.ca">Department of EECS</a> at <a href="https://www.yorku.ca">York University</a> in Canada.</p>
+<p>I am a senior researcher at Huawei Canada. I received my Ph.D degree from <a href="https://www.yorku.ca">York University</a> in Canada under supervision of <a href="http://www.cse.yorku.ca/~zmjiang/">Prof. Zhen Ming (Jack) Jiang</a>.
+</p>
+<p>My research interests lie in empirical software engineering, logging, software tesing, and machine learning. My Google Scholar page is <a href="https://scholar.google.com/citations?user=HsUXC7oAAAAJ&hl=en">here </a>. </p>
 
-<p>This is my blog for logging my research thoughts, sharing technical articles.
+You can find my CV <a href="/resources/CV-boyuan.pdf">here</a>
 
-Feel free to contact me. I'm glad to have a chat!</p>
-
-You can find more academy-related information about me at <a href="https://www.eecs.yorku.ca/~chenfsd">here</a>
 </td>
 </tr>
 </table>
