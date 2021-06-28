@@ -5,7 +5,13 @@ permalink: /publications/
 ---
 <p>Highlights: I have published 3*ICSE (2 technical track, 1 short paper), 2*ASE, 2*EMSE, 1*CSUR.</p>
 <ul>
-            <li> A Survey of Software Log Instrumentation.<b><i> ACM Computing Survey 2021. </i></b>
+        <li> An Experience Report on Producing Verifiable builds for Large-Scale Commerical systems.<b><i> IEEE Transactions on Software Engineering</i></b>
+            <br>Young Shi, Mingzhi Wen, Filipe Roseiro Cogo, <b>Boyuan Chen</b>, Zhen Ming (Jack) Jiang
+            <br>[<a href="https://ieeexplore.ieee.org/document/9465650">paper</a>]
+	    </li>
+	    <br>
+
+        <li> A Survey of Software Log Instrumentation.<b><i> ACM Computing Survey 2021. </i></b>
             <br><b>Boyuan Chen</b>, Zhen Ming (Jack) Jiang
             <br>[<a href="https://dl.acm.org/doi/fullHtml/10.1145/3448976">paper</a>]
 	    </li>
