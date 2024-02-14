@@ -1,7 +1,6 @@
 ---
 permalink: /
 title: "Hi, I am Boyuan (Nemo), I love learning in practice."
-excerpt: "About me"
 author_profile: true
 redirect_from: 
   - /about/
