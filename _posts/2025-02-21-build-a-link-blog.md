@@ -1,7 +1,7 @@
 ---
 layout: single
 title:  "Build a link blog post"
-date: 2025-02-21 22:39:00 -5000
+date: 2025-02-21 22:39:00 -0500
 categories: 
   - Resources
 tags:
