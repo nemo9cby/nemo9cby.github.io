@@ -9,7 +9,7 @@ I am a Principal Researcher at Centre for Software Excellence, Huawei Canada.
 I lead a research team on Heterogeneous Computing. Currently, my research focuses on building infrastructure for large scale clusters for FMWare (i.e., Software based on Foundational Models). I am also interested in software reproducibility, logging, and AI4SE.
 I received my Ph.D degree in Software Engineering from York University, Canada, under supervision of Prof. [Zhen Ming (Jack) Jiang](http://www.cse.yorku.ca/~zmjiang/).
 
-Many of our team's work is contributed to [Ray](https://ray.io), a popular open source distributed computing framework. For instance, We provided the native Ascend support for Ray.
+Many of our team's work is contributed to [Ray](https://ray.io), a popular open source distributed computing framework. For instance, We provided the native Ascend support for Ray. Our talk at Ray Summit 2024 is [here](https://youtu.be/TSAWC-ZZwv4?si=Ht30wHcPAr2h8Aca).
 
 ## Selected Publications ([Full List](https://scholar.google.com/citations?hl=en&user=HsUXC7oAAAAJ))
 
@@ -22,6 +22,7 @@ Many of our team's work is contributed to [Ray](https://ray.io), a popular open 
 - **Towards training reproducible deep learning models**.\
   <ins>Boyuan Chen</ins>, Mingzhi Wen, Yong Shi, Dayi Lin, Gopi Krishnan Rajbahadur, Zhen Ming (Jack) Jiang\
   International Conference on Software Engineering (**ICSE 2022**)
+
 
 
 
