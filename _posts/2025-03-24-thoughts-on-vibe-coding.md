@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Thoughts on vibe coding"
-date: 2025-03-18 
+date: 2025-03-24 
 categories: 
   - Essays
 tags:
