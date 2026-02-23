@@ -1,0 +1,138 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Humanizer A/B Log — AI Writing De-Slop Experiment</title>
+<meta name="description" content="Before/after comparisons of AI-generated text run through a humanizer pipeline. Tracking how well we can remove AI writing patterns.">
+<style>
+  :root { --bg: #0d1117; --card: #161b22; --border: #30363d; --text: #e6edf3; --dim: #8b949e; --green: #3fb950; --red: #f85149; --blue: #58a6ff; --yellow: #d29922; --purple: #bc8cff; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem; max-width: 1200px; margin: 0 auto; }
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .header { margin-bottom: 2rem; }
+  h1 { font-size: 1.8rem; margin-bottom: 0.3rem; }
+  .subtitle { color: var(--dim); margin-bottom: 0.5rem; font-size: 0.95rem; }
+  .back { font-size: 0.85rem; color: var(--dim); margin-bottom: 1.5rem; display: inline-block; }
+  .stats { display: flex; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .stat { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.5rem; min-width: 140px; }
+  .stat-num { font-size: 1.8rem; font-weight: 700; }
+  .stat-label { color: var(--dim); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .filters { margin-bottom: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .filters button { background: var(--card); border: 1px solid var(--border); color: var(--dim); padding: 0.4rem 1rem; border-radius: 20px; cursor: pointer; font-size: 0.85rem; transition: all 0.2s; }
+  .filters button:hover, .filters button.active { color: var(--text); border-color: var(--blue); background: #1a2332; }
+  .about { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; font-size: 0.9rem; color: var(--dim); line-height: 1.8; }
+  .about h2 { color: var(--text); font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .about code { background: #1a2332; padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.82rem; color: var(--purple); }
+  .entry { background: var(--card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 1.5rem; overflow: hidden; }
+  .entry-header { padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+  .entry-meta { display: flex; gap: 1rem; align-items: center; }
+  .entry-type { font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; }
+  .type-xhs { background: #f8514922; color: var(--red); }
+  .type-x-reply { background: #58a6ff22; color: var(--blue); }
+  .type-linkedin { background: #3fb95022; color: var(--green); }
+  .type-x-thread { background: #bc8cff22; color: var(--purple); }
+  .type-other { background: #8b949e22; color: var(--dim); }
+  .entry-date { color: var(--dim); font-size: 0.85rem; }
+  .entry-title { font-weight: 600; }
+  .diff-container { display: grid; grid-template-columns: 1fr 1fr; }
+  .diff-col { padding: 1.2rem 1.5rem; }
+  .diff-col:first-child { border-right: 1px solid var(--border); }
+  .diff-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.6rem; font-weight: 600; }
+  .diff-label.before { color: var(--red); }
+  .diff-label.after { color: var(--green); }
+  .diff-text { font-size: 0.9rem; white-space: pre-wrap; line-height: 1.7; color: #c9d1d9; }
+  .entry-footer { padding: 0.8rem 1.5rem; border-top: 1px solid var(--border); }
+  .changes-summary { font-size: 0.82rem; color: var(--dim); }
+  .changes-summary strong { color: var(--text); }
+  .word-count { font-size: 0.78rem; color: var(--dim); }
+  .word-count .delta { color: var(--green); }
+  .word-count .delta.longer { color: var(--yellow); }
+  @media (max-width: 768px) { .diff-container { grid-template-columns: 1fr; } .diff-col:first-child { border-right: none; border-bottom: 1px solid var(--border); } body { padding: 1rem; } }
+  .empty { text-align: center; padding: 4rem 2rem; color: var(--dim); }
+  .footer { text-align: center; padding: 2rem 0; color: var(--dim); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="/">← back to chenboyuan.com</a>
+  <h1>🧹 Humanizer A/B Log</h1>
+  <p class="subtitle">AI raw output vs. humanized — tracking de-slop effectiveness in real-time</p>
+</div>
+
+<div class="about">
+  <h2>What is this?</h2>
+  <p>I run an AI assistant (<a href="https://github.com/openclaw/openclaw">OpenClaw</a>) that posts X replies, drafts 小红书 articles, and generates content on my behalf. The problem: AI writing has obvious tells — <code>additionally</code>, <code>crucial</code>, <code>landscape</code>, significance inflation, sycophantic openers, rule-of-three lists, etc.</p>
+  <p style="margin-top:0.5rem">This page logs every piece of content <strong>before</strong> and <strong>after</strong> running through a <a href="https://github.com/blader/humanizer">humanizer skill</a> based on Wikipedia's <a href="https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing">"Signs of AI writing"</a> guide (24 patterns). The goal: make AI output sound like a real person wrote it. You be the judge.</p>
+</div>
+
+<div class="stats" id="stats"></div>
+<div class="filters" id="filters"></div>
+<div id="entries"></div>
+
+<div class="footer">
+  Built by <a href="https://x.com/boyuan_chen">@boyuan_chen</a> · Powered by <a href="https://github.com/openclaw/openclaw">OpenClaw</a> + <a href="https://github.com/blader/humanizer">Humanizer</a>
+</div>
+
+<script>
+const DATA = [{"id":2,"date":"2026-02-22","type":"x-reply","title":"Reply to @giansegato","before":"This resonates deeply. Moved to Canada from China at 22 with essentially no network. Every 'low status' decision \u2014 staying in grad school longer, taking the unglamorous infra role \u2014 compounded quietly while others optimized for optics. The hardest part isn't making the decision, it's the 3 years of silence before it pays off.","after":"Moved to Canada from China at 22 with no network. Every 'low status' choice \u2014 staying in grad school longer, taking the unglamorous infra job \u2014 compounded quietly while others optimized for optics. The hard part isn't the decision, it's the 3 years of silence before it pays off.","beforeWords":52,"afterWords":46,"changes":"Removed sycophantic opener; replaced essentially with no hedging; tightened phrasing"},{"id":3,"date":"2026-02-22","type":"x-reply","title":"Reply to @rohanpaul_ai","before":"The academic vs corporate split is the crucial story here. In the US, top ML researchers go to Google/Meta. In China, they stay at Tsinghua or Peking U \u2014 the funding and talent pipelines flow differently. Working in AI across both systems, you see how incentive structures shape what gets built versus what gets published.","after":"The academic vs corporate split is what jumps out. US top ML talent goes to Google/Meta. In China they stay at Tsinghua or Peking U because government funding flows through universities. I work in AI between both systems and the research that comes out is just shaped differently when publish-or-perish vs ship-or-die are the incentives.","beforeWords":51,"afterWords":53,"changes":"Replaced crucial (AI word); added first person; made causal chain explicit; added publish-or-perish vs ship-or-die for voice"},{"id":4,"date":"2026-02-22","type":"x-reply","title":"Reply to @thdxr","before":"This is basically what Naval meant by 'specific knowledge can't be trained' \u2014 credit is how you signal you're paying attention to who's building what. The funniest version is people who fork a repo, change the README, and act like they invented it. Credit is free and somehow people still can't afford it.","after":"The funniest version of this is people who fork a repo, change the README, and act like they invented it. Meanwhile the original author is just happy someone used their code. Credit is free and somehow people still can't afford it.","beforeWords":52,"afterWords":37,"changes":"Removed forced Naval quote connector; simplified to punchier standalone observation"}];
+
+let currentFilter = 'all';
+
+function render(filter) {
+  currentFilter = filter;
+  const data = DATA;
+  const filtered = filter === 'all' ? data : data.filter(d => d.type === filter);
+  const types = [...new Set(data.map(d => d.type))];
+  const avgReduction = data.length ? Math.round(data.reduce((s,d) => s + (1 - d.afterWords/Math.max(d.beforeWords,1)), 0) / data.length * 100) : 0;
+
+  document.getElementById('stats').innerHTML = `
+    <div class="stat"><div class="stat-num">${data.length}</div><div class="stat-label">Total Entries</div></div>
+    <div class="stat"><div class="stat-num">${types.length}</div><div class="stat-label">Content Types</div></div>
+    <div class="stat"><div class="stat-num">${avgReduction}%</div><div class="stat-label">Avg Word Reduction</div></div>
+    <div class="stat"><div class="stat-num">${data.length ? Math.round(data.reduce((s,d) => s + d.afterWords, 0) / data.length) : 0}</div><div class="stat-label">Avg Final Words</div></div>
+  `;
+
+  document.getElementById('filters').innerHTML = `
+    <button class="${filter==='all'?'active':''}" onclick="render('all')">All</button>
+    ${types.map(t => `<button class="${filter===t?'active':''}" onclick="render('${t}')">${t}</button>`).join('')}
+  `;
+
+  const el = document.getElementById('entries');
+  if (!filtered.length) { el.innerHTML = '<div class="empty">No entries for this filter.</div>'; return; }
+  el.innerHTML = filtered.slice().reverse().map(e => {
+    const delta = e.beforeWords - e.afterWords;
+    const pct = e.beforeWords ? Math.round(delta / e.beforeWords * 100) : 0;
+    const typeClass = 'type-' + (e.type || 'other').replace(/[^a-z-]/g, '');
+    return `
+    <div class="entry">
+      <div class="entry-header">
+        <div class="entry-meta">
+          <span class="entry-type ${typeClass}">${esc(e.type)}</span>
+          <span class="entry-title">${esc(e.title)}</span>
+        </div>
+        <div>
+          <span class="entry-date">${esc(e.date)}</span>
+          <span class="word-count"> · ${e.beforeWords}\u2192${e.afterWords} words <span class="delta ${delta<0?'longer':''}">(${delta>=0?'-':'+'}${Math.abs(pct)}%)</span></span>
+        </div>
+      </div>
+      <div class="diff-container">
+        <div class="diff-col"><div class="diff-label before">\ud83e\udd16 AI Original</div><div class="diff-text">${esc(e.before)}</div></div>
+        <div class="diff-col"><div class="diff-label after">\u270d\ufe0f Humanized</div><div class="diff-text">${esc(e.after)}</div></div>
+      </div>
+      ${e.changes ? `<div class="entry-footer"><div class="changes-summary"><strong>Changes:</strong> ${esc(e.changes)}</div></div>` : ''}
+    </div>`;
+  }).join('');
+}
+
+function esc(s) { const d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
+
+render('all');
+</script>
+</body>
+</html>
