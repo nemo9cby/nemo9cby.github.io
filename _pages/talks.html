@@ -1,16 +1,27 @@
 ---
 layout: archive
-title: "Talks and presentations"
+title: "Talks"
 permalink: /talks/
+lede: "Talks, tutorials and recorded presentations."
 author_profile: true
 ---
 
-{% if site.talkmap_link == true %}
+{% assign talks = site.talks | sort: "date" | reverse %}
+{% assign featured = talks | where: "featured", true %}
 
-<p style="text-decoration:underline;"><a href="/talkmap.html">See a map of all the places I've given a talk!</a></p>
-
+{% if featured.size > 0 %}
+<div class="talk-cards talk-cards--page">
+  {%- for talk in featured limit: 2 %}
+    {% include talk-card.html talk=talk %}
+  {%- endfor %}
+</div>
 {% endif %}
 
-{% for post in site.talks reversed %}
-  {% include archive-single-talk.html %}
-{% endfor %}
+<section class="list-section">
+  <h2 class="list-section__title">All talks <span class="list-section__count">{{ talks.size }}</span></h2>
+  <ol class="talk-list">
+    {%- for talk in talks %}
+      {% include talk-row.html talk=talk %}
+    {%- endfor %}
+  </ol>
+</section>

@@ -1,17 +1,22 @@
-{% if post.read_time %}
-  {% assign words = post.content | strip_html | number_of_words %}
-{% elsif page.read_time %}
-  {% assign words = page.content | strip_html | number_of_words %}
-{% endif %}
-
-{% if site.words_per_minute %}
-  {% if words < 180 %}
-	  {{ site.data.ui-text[site.locale].less_than | default: "less than" }} 1 {{ site.data.ui-text[site.locale].minute_read | default: "minute read" }}
-	{% elsif words < 360 %}
-	  1 {{ site.data.ui-text[site.locale].minute_read | default: "minute read" }}
-	{% else %}
-	  {{ words | divided_by:site.words_per_minute }} {{ site.data.ui-text[site.locale].minute_read | default: "minute read" }}
-	{% endif %}
-{% else %}
-  {{ site.data.ui-text[site.locale].undefined_wpm | "Undefined parameter words_per_minute at _config.yml" }}
-{% endif %}
+{%- comment -%}
+  Reading time for the current post/page. Jekyll 3 counts words by spaces, which
+  badly undercounts Chinese, so posts with Chinese punctuation are timed by
+  characters instead (about 500 characters per minute for mixed Chinese/English).
+{%- endcomment -%}
+{%- if post.read_time -%}
+  {%- assign __text = post.content | strip_html -%}
+{%- else -%}
+  {%- assign __text = page.content | strip_html -%}
+{%- endif -%}
+{%- assign __words = __text | number_of_words -%}
+{%- assign __wpm = site.words_per_minute | default: 200 -%}
+{%- assign __zh_commas = __text | split: '，' | size -%}
+{%- assign __zh_stops = __text | split: '。' | size -%}
+{%- assign __zh_marks = __zh_commas | plus: __zh_stops -%}
+{%- if __zh_marks > 8 -%}
+  {%- assign __minutes = __text | strip | size | divided_by: 500 -%}
+{%- else -%}
+  {%- assign __minutes = __words | divided_by: __wpm -%}
+{%- endif -%}
+{%- if __minutes < 1 -%}{%- assign __minutes = 1 -%}{%- endif -%}
+{{ __minutes }} {{ site.data.ui-text[site.locale].minute_read | default: "minute read" }}

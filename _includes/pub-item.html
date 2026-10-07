@@ -1,0 +1,17 @@
+{%- assign pub = include.pub -%}
+{%- capture me %}<span class="me">{{ site.author.name }}</span>{% endcapture -%}
+<li class="pub">
+  <p class="pub__venue">{{ pub.venue }}{% if pub.status %}<span>{{ pub.status }}</span>{% endif %}</p>
+  <h3 class="pub__title">{% if pub.paperurl %}<a href="{{ pub.paperurl }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}</h3>
+  {%- if pub.authors %}
+  <p class="pub__authors">{{ pub.authors | replace: site.author.name, me }}</p>
+  {%- endif %}
+  {%- if pub.excerpt and pub.excerpt != "" %}
+  <p class="pub__note">{{ pub.excerpt | strip_html | strip }}</p>
+  {%- endif %}
+  {%- if pub.links %}
+  <ul class="pub__links">
+    {%- for link in pub.links %}<li><a href="{{ link.url }}">{{ link.label }}</a></li>{% endfor -%}
+  </ul>
+  {%- endif %}
+</li>

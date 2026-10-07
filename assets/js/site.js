@@ -69,6 +69,7 @@
     var details = dialog.querySelector('.lightbox__caption span');
     var prev = dialog.querySelector('.lightbox__btn--prev');
     var next = dialog.querySelector('.lightbox__btn--next');
+    var closeButton = dialog.querySelector('.lightbox__btn--close');
     var current = 0;
     var opener = null;
 
@@ -92,13 +93,14 @@
         opener = link;
         show(index);
         dialog.showModal();
+        closeButton.focus();
         document.body.classList.add('has-lightbox');
       });
     });
 
     prev.addEventListener('click', function () { show(current - 1); });
     next.addEventListener('click', function () { show(current + 1); });
-    dialog.querySelector('.lightbox__btn--close').addEventListener('click', function () { dialog.close(); });
+    closeButton.addEventListener('click', function () { dialog.close(); });
 
     dialog.addEventListener('keydown', function (event) {
       if (event.key === 'ArrowLeft') show(current - 1);

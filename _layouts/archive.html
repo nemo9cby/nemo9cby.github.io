@@ -1,24 +1,18 @@
 ---
 layout: default
 ---
-
-{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
-  {% include page__hero.html %}
-{% endif %}
-
-{% if page.url != "/" and site.breadcrumbs %}
-  {% unless paginator %}
-    {% include breadcrumbs.html %}
-  {% endunless %}
-{% endif %}
-
-<div id="main" role="main">
-  {% include sidebar.html %}
-
-  <div class="archive">
-    {% unless page.header.overlay_color or page.header.overlay_image %}
-      <h1 class="page__title">{{ page.title }}</h1>
-    {% endunless %}
-    {{ content }}
-  </div>
+<div class="page {{ page.page_class }}">
+  <header class="page-head">
+    {%- if page.title_photo %}
+      {%- assign meta = site.data.photo_meta[page.title_photo] -%}
+      {%- assign base = '/images/photos/' | relative_url | append: page.title_photo -%}
+    <h1 class="page-head__title page-head__title--photo statement__line" style="--fill-sm: url('{{ base }}-{{ meta.widths[0] }}.webp'); --fill-lg: url('{{ base }}-{{ meta.widths[1] }}.webp'); --fill-pos: {{ page.title_photo_position | default: 'center' }};">{{ page.title }}</h1>
+    {%- else %}
+    <h1 class="page-head__title">{{ page.title }}</h1>
+    {%- endif %}
+    {%- if page.lede %}
+    <p class="page-head__lede">{{ page.lede | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+    {%- endif %}
+  </header>
+  {{ content }}
 </div>

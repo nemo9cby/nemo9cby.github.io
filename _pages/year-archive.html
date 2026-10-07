@@ -1,20 +1,21 @@
 ---
 layout: archive
 permalink: /blogs
-title: "Blog posts"
+title: "Blog"
+lede: "Notes on training language models and the systems around them, link lists, and the occasional essay. Some posts are in Chinese."
 author_profile: true
 redirect_from:
   - /wordpress/blog-posts/
 ---
 
-{% include base_path %}
-{% capture written_year %}'None'{% endcapture %}
-
-{% for post in site.posts %}
-  {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-  {% if year != written_year %}
-    <h2 id="{{ year | slugify }}" class="archive__subtitle">{{ year }}</h2>
-    {% capture written_year %}{{ year }}{% endcapture %}
-  {% endif %}
-  {% include archive-single.html %}
+{% assign years = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+{% for year in years %}
+<section class="list-section">
+  <h2 class="list-section__title" id="{{ year.name }}">{{ year.name }} <span class="list-section__count">{{ year.items.size }} {% if year.items.size == 1 %}post{% else %}posts{% endif %}</span></h2>
+  <ol class="post-list">
+    {%- for post in year.items %}
+      {% include post-item.html post=post excerpt=true %}
+    {%- endfor %}
+  </ol>
+</section>
 {% endfor %}

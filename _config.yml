@@ -197,7 +197,7 @@ collections:
     output: true
     permalink: /:year/:month/:day/:title/
   publications:
-    output: true
+    output: false # listed on /publications/; no per-paper pages
     permalink: /:collection/:path/
   portfolio:
     output: true
@@ -241,7 +241,7 @@ defaults:
       path: ""
       type: publications
     values:
-      layout: publication
+      layout: single
       author_profile: true
       share: true
       comments: true

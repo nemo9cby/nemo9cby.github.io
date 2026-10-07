@@ -1,0 +1,6 @@
+{%- assign talk = include.talk -%}
+<li class="talk-row">
+  <p class="talk-row__date"><time datetime="{{ talk.date | date: '%Y-%m-%d' }}">{{ talk.date | date: "%b %Y" }}</time></p>
+  <h3 class="talk-row__title"><a href="{{ talk.url | relative_url }}">{{ talk.title }}</a></h3>
+  <p class="talk-row__venue">{{ talk.venue }}{% if talk.location %}, {{ talk.location }}{% endif %}{% if talk.role %}. {{ talk.role }}{% endif %}</p>
+</li>
