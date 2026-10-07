@@ -9,9 +9,9 @@
 locale                   : "en-US"
 title                    : "Boyuan Chen"
 title_separator          : "-"
-name                     : &name "Nemo"
-description              : &description "Description"
-url                      : "https://chenboyuan.com" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+name                     : &name "Boyuan Chen"
+description              : &description "Boyuan Chen is a researcher at Huawei Canada working on LLM post-training for software engineering, distributed AI systems, and the occasional photograph."
+url                      : "https://www.chenboyuan.com" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "nemo9cby/nemo9cby.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
@@ -57,23 +57,27 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               : &twitter
+  username               : &twitter "nemocbb"
 facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 :  # Open Graph/Twitter default site image
+og_image                 : "og-image.jpg" # Open Graph/Twitter default site image (in /images/)
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
-  type                   : # Person or Organization (defaults to Person)
-  name                   : # If the user or organization name differs from the site's name
+  type                   : Person
+  name                   : "Boyuan Chen"
   links: # An array of links to social media profiles
+    - "https://github.com/nemo9cby"
+    - "https://scholar.google.com/citations?user=HsUXC7oAAAAJ"
+    - "https://www.linkedin.com/in/boyuan-chen-749b9ba6/"
+    - "https://x.com/nemocbb"
 
 
 # Analytics
 analytics:
-  provider               :  "google-universal" # false (default), "google", "google-universal", "custom"
+  provider               : false # false (default), "google", "google-universal", "custom"
   google:
     tracking_id          :
 
@@ -87,7 +91,7 @@ author:
   employer         : "Huawei Canada"
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=HsUXC7oAAAAJ"
-  email            :
+  email            : "chenfsd@gmail.com"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -102,7 +106,7 @@ author:
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         : "https://www.linkedin.com/in/boyuan-nemo-chen-749b9ba6/"
+  linkedin         : "boyuan-chen-749b9ba6" # profile slug: https://www.linkedin.com/in/<slug>/
   orcid            : 
   pinterest        :
   soundcloud       :
@@ -146,6 +150,16 @@ exclude:
   - package.json
   - tmp
   - vendor
+  - scripts
+  - markdown_generator
+  - talkmap.py
+  - talkmap.ipynb
+  - CHANGELOG.md
+  - CONTRIBUTING.md
+  - README.md
+  - Gemfile.lock
+  - .ruby-lsp
+  - .playwright-mcp
 keep_files:
   - .git
   - .svn
@@ -227,7 +241,7 @@ defaults:
       path: ""
       type: publications
     values:
-      layout: single
+      layout: publication
       author_profile: true
       share: true
       comments: true
@@ -265,16 +279,19 @@ timezone: America/Los_Angeles # http://en.wikipedia.org/wiki/List_of_tz_database
 # Plugins
 plugins:
   - jekyll-paginate
-#  - jekyll-sitemap
+  - jekyll-sitemap
+  - jekyll-seo-tag
   - jekyll-gist
   - jekyll-feed
   - jekyll-redirect-from
 # mimic GitHub Pages with --safe
 whitelist:
   - jekyll-paginate
-    #  - jekyll-sitemap
+  - jekyll-sitemap
+  - jekyll-seo-tag
   - jekyll-gist
   - jekyll-feed
+  - jekyll-redirect-from
   - jemoji
 
 

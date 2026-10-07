@@ -1,0 +1,34 @@
+# Photographs shown on the site, in display order.
+# Add new ones with:  uv run scripts/photos.py add <path-to-jpg>...
+# then fill in title / place / alt here. Sizes, colours and camera
+# settings are generated into _data/photo_meta.yml.
+
+- id: DSC01521
+  title: Frigatebird
+  place: Isla Mujeres, Mexico
+  alt: A frigatebird glides across a pale blue sky, above a band of clouds, the open sea and dark green coastal shrubs.
+
+- id: DSC01533
+  title: Limestone shore
+  place: Isla Mujeres, Mexico
+  alt: Weathered grey limestone cliffs and rust-coloured sargassum line the shore under a wide, hazy sky.
+
+- id: DSC01524
+  title: Pelicans and gulls
+  place: Isla Mujeres, Mexico
+  alt: Brown pelicans float on calm blue water off a white-sand beach, with gulls overhead and limestone rocks in the foreground.
+
+- id: DSC01532
+  title: Signpost
+  place: Isla Mujeres, Mexico
+  alt: A wooden signpost with colourful arrows pointing to island landmarks stands beside a coastal path, with the sea behind it.
+
+- id: DSC01202
+  title: Two dolphins
+  place: ""
+  alt: Two dolphins swim side by side just below the surface of bright turquoise water.
+
+- id: DSC01171
+  title: Striped fish
+  place: ""
+  alt: Close-up of a fish with dark vertical stripes, lit purple against a dark aquarium background.

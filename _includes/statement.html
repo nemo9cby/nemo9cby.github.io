@@ -1,0 +1,14 @@
+{%- comment -%}
+  Oversized type filled with photographs. lines: [{text, photo, position}]
+{%- endcomment -%}
+{%- if include.lines -%}
+<section class="statement">
+  <p class="statement__lines">
+    {%- for line in include.lines -%}
+      {%- assign meta = site.data.photo_meta[line.photo] -%}
+      {%- assign base = '/images/photos/' | relative_url | append: line.photo -%}
+      <span class="statement__line" style="--fill-sm: url('{{ base }}-{{ meta.widths[0] }}.webp'); --fill-lg: url('{{ base }}-{{ meta.widths[1] }}.webp'); --fill-pos: {{ line.position | default: 'center' }};">{{ line.text }}</span>
+    {%- endfor -%}
+  </p>
+</section>
+{%- endif -%}

@@ -2,40 +2,17 @@
 ---
 
 /*
- *    Minimal Mistakes Jekyll Theme
- *
- *  - Michael Rose
- *  - mademistakes.com
- *  - https://twitter.com/mmistakes
- *
-*/
+ * chenboyuan.com
+ * Partials live in _sass/site/. Plain CSS inside SCSS on purpose: GitHub Pages
+ * compiles with Ruby Sass 3.7, so avoid min()/max(), space-separated rgb() and
+ * unwrapped arithmetic inside clamp() (wrap it in calc()).
+ */
 
-@import "vendor/breakpoint/breakpoint"; // media query mixins
-@import "variables";
-@import "mixins";
-@import "vendor/susy/susy";
-
-@import "reset";
-@import "base";
-
-@import "utilities";
-@import "animations";
-@import "tables";
-@import "buttons";
-@import "notices";
-@import "masthead";
-@import "navigation";
-@import "footer";
-@import "syntax";
-
-@import "forms";
-
-@import "page";
-@import "archive";
-@import "sidebar";
-
-@import "vendor/font-awesome/fontawesome";
-@import "vendor/font-awesome/solid";
-@import "vendor/font-awesome/brands";
-@import "vendor/magnific-popup/magnific-popup";
-@import "print";
+@import "site/tokens";
+@import "site/base";
+@import "site/chrome";
+@import "site/prose";
+@import "site/home";
+@import "site/pages";
+@import "site/lightbox";
+@import "site/print";

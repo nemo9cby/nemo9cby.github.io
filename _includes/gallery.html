@@ -1,0 +1,20 @@
+{%- comment -%}
+  Justified photo rows: each item grows in proportion to its aspect ratio, so every
+  row shares one height. Links open the lightbox (assets/js/site.js) or, without JS,
+  the full-size image.
+{%- endcomment -%}
+<ul class="gallery" data-gallery>
+  {%- for photo in include.photos limit: include.limit -%}
+    {%- assign meta = site.data.photo_meta[photo.id] -%}
+    {%- if meta -%}
+    {%- assign ratio = meta.width | times: 1.0 | divided_by: meta.height | round: 4 -%}
+    {%- capture caption -%}{{ photo.title }}{% if photo.place != "" %}, {{ photo.place }}{% endif %}{%- endcapture -%}
+    {%- capture details -%}{{ meta.taken | date: "%B %Y" }}. {{ meta.camera }}, {{ meta.focal_length }}, {{ meta.aperture }}, {{ meta.shutter }}, ISO {{ meta.iso }}{%- endcapture -%}
+    <li class="gallery__item" style="--ar: {{ ratio }}">
+      <a href="{{ '/images/photos/' | relative_url }}{{ photo.id }}-{{ meta.widths | last }}.webp" data-lightbox data-caption="{{ caption | escape }}" data-details="{{ details | escape }}">
+        {% include photo.html id=photo.id sizes="(min-width: 64rem) 45vw, (min-width: 40rem) 60vw, 100vw" %}
+      </a>
+    </li>
+    {%- endif -%}
+  {%- endfor -%}
+</ul>

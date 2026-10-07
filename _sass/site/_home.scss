@@ -1,0 +1,634 @@
+/* Home page: hero, about, statement and the bands that follow. */
+
+/* Hero ------------------------------------------------------------------ */
+
+.hero {
+  position: relative;
+  display: grid;
+  align-items: end;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #22302e;
+  color: #fff;
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+}
+
+.hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 36% 40%;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(8, 20, 28, 0.72) 0%, rgba(8, 20, 28, 0.32) 34%, rgba(8, 20, 28, 0) 58%),
+    linear-gradient(to bottom, rgba(8, 20, 28, 0.38) 0%, rgba(8, 20, 28, 0) 20%);
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter) clamp(5rem, 12vh, 8rem);
+}
+
+.hero__name {
+  color: #fff;
+  font-size: clamp(3.25rem, calc(0.75rem + 9.5vw), 10rem);
+  font-weight: 860;
+  font-stretch: 125%;
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+}
+
+.hero__line {
+  max-width: 34ch;
+  margin: 1.25rem 0 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, calc(0.95rem + 0.7vw), 1.5rem);
+  font-weight: 450;
+  font-stretch: 105%;
+  line-height: 1.35;
+}
+
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.profile-links a {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: inherit;
+  border-radius: 50%;
+}
+
+.profile-links a:hover {
+  background: rgba(127, 127, 127, 0.16);
+}
+
+.profile-links .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.hero__links {
+  margin: 1.5rem 0 0 -0.6rem;
+  color: #fff;
+}
+
+.hero__caption {
+  position: absolute;
+  z-index: 1;
+  right: var(--gutter);
+  bottom: 1.6rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  letter-spacing: 0.01em;
+}
+
+.hero__scroll {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  bottom: 1.1rem;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-left: -1.25rem;
+  color: #fff;
+  opacity: 0.85;
+}
+
+.hero a:focus-visible {
+  outline-color: #fff;
+}
+
+@media (max-width: 47.99rem) {
+  .hero__caption {
+    left: var(--gutter);
+    right: auto;
+  }
+
+  .hero__scroll {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero__img {
+    animation: hero-settle 2.8s var(--ease) both;
+  }
+
+  .hero__name,
+  .hero__line,
+  .hero__links {
+    animation: hero-rise 1s var(--ease) both;
+  }
+
+  .hero__line {
+    animation-delay: 0.12s;
+  }
+
+  .hero__links {
+    animation-delay: 0.24s;
+  }
+}
+
+@keyframes hero-settle {
+  from {
+    transform: scale(1.06);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* About ----------------------------------------------------------------- */
+
+.about {
+  padding: var(--band-pad) 0 clamp(2rem, 4vw, 4rem);
+}
+
+.about__inner {
+  display: grid;
+  gap: clamp(2rem, 5vw, 5.5rem);
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+@media (min-width: 56rem) {
+  .about__inner {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    align-items: start;
+  }
+
+  .about__portrait {
+    position: sticky;
+    top: calc(var(--nav-h) + 2rem);
+  }
+}
+
+.about__portrait {
+  margin: 0;
+}
+
+.about__portrait img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 28%;
+  background: var(--haze);
+}
+
+@media (max-width: 55.99rem) {
+  .about__portrait {
+    max-width: 22rem;
+  }
+}
+
+.about__hello {
+  margin: 0 0 1.75rem;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, calc(1rem + 2.6vw), 3.25rem);
+  font-weight: 760;
+  font-stretch: 115%;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.about__text h2 {
+  margin: 0 0 0.75rem;
+  color: var(--slate);
+  font-size: 1rem;
+  font-weight: 600;
+  font-stretch: 100%;
+  letter-spacing: 0;
+}
+
+/* Statement: oversized type filled with photographs ---------------------- */
+
+.statement {
+  padding: clamp(2.5rem, 7vw, 7rem) var(--gutter) clamp(3.5rem, 9vw, 9rem);
+  overflow: hidden;
+}
+
+.statement__lines {
+  max-width: 96rem;
+  margin: 0 auto;
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, calc(0.1rem + 10.6vw), 11.5rem);
+  font-weight: 900;
+  font-stretch: 125%;
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+  text-align: center;
+}
+
+.statement__line {
+  display: block;
+  padding-bottom: 0.04em;
+  color: var(--ink);
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .statement__line {
+    color: transparent;
+    background-color: var(--ink);
+    background-image: linear-gradient(rgba(18, 33, 46, 0.18), rgba(18, 33, 46, 0.18)), var(--fill-sm);
+    background-position: center, var(--fill-pos);
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  @media (min-width: 48rem) {
+    .statement__line {
+      background-image: linear-gradient(rgba(18, 33, 46, 0.18), rgba(18, 33, 46, 0.18)), var(--fill-lg);
+    }
+  }
+}
+
+@media (forced-colors: active) {
+  .statement__line {
+    color: CanvasText;
+    background: none;
+  }
+}
+
+/* Bands ----------------------------------------------------------------- */
+
+.band {
+  padding: var(--band-pad) 0;
+}
+
+.band__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.band--haze {
+  background: var(--haze);
+}
+
+.band--dark {
+  --ink: #ffffff;
+  --text: var(--gulf-ink);
+  --slate: var(--gulf-slate);
+  --lagoon: var(--shallows);
+  --mist: rgba(255, 255, 255, 0.14);
+  background: var(--gulf);
+  color: var(--gulf-ink);
+}
+
+.band__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.band__head h2,
+.band .prose > h2 {
+  font-size: clamp(2.25rem, calc(1rem + 3.2vw), 4rem);
+  font-weight: 780;
+  font-stretch: 120%;
+  letter-spacing: -0.03em;
+}
+
+.band__head a {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 550;
+}
+
+.band .prose > h2 {
+  max-width: none;
+  margin: 0 0 clamp(2rem, 4vw, 3.5rem);
+}
+
+/* Heading links such as "(Full List)" read as a quiet aside. */
+.band .prose > h2 a {
+  font-size: 0.42em;
+  font-weight: 550;
+  font-stretch: 100%;
+  letter-spacing: 0;
+  vertical-align: middle;
+}
+
+/* News: dates pulled into their own column */
+
+.news .prose > p,
+.news .news-item {
+  max-width: 64rem;
+}
+
+/* Block, not grid: a grid would split the paragraph's text runs and links
+   into separate rows. */
+.news-item {
+  position: relative;
+  margin: 0;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--mist);
+}
+
+.news-item:last-child {
+  border-bottom: 1px solid var(--mist);
+}
+
+.prose .news-item__date {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--slate);
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 560;
+  font-variant-numeric: lining-nums proportional-nums;
+  line-height: 1.8;
+}
+
+@media (min-width: 48rem) {
+  .news-item {
+    padding-left: 10rem;
+  }
+
+  .prose .news-item__date {
+    position: absolute;
+    top: 1.55rem;
+    left: 0;
+    margin: 0;
+  }
+}
+
+/* Prose bands (Selected Publications etc.) */
+
+.prose-band .prose > ul {
+  display: grid;
+  gap: 1.75rem;
+  max-width: 54rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.prose-band .prose > ul > li {
+  margin: 0;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--mist);
+  line-height: 1.55;
+}
+
+.prose-band .prose > ul > li p {
+  margin: 0;
+}
+
+.prose-band .prose > ul > li strong {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 620;
+  font-size: 1.0625em;
+  line-height: 1.3;
+}
+
+.prose-band .prose > ul > li:hover {
+  border-left-color: var(--lagoon);
+}
+
+/* Talk cards ------------------------------------------------------------- */
+
+.talk-cards {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+@media (min-width: 56rem) {
+  .talk-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.talk-card__media {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: var(--gulf);
+}
+
+.talk-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+
+.talk-card__media:hover img {
+  transform: scale(1.03);
+}
+
+.talk-card__play {
+  position: absolute;
+  left: 1.25rem;
+  bottom: 1.25rem;
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  color: #12212e;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+}
+
+.talk-card__play .icon {
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-left: 0.2rem;
+}
+
+.talk-card__body {
+  padding-top: 1.25rem;
+}
+
+.talk-card__venue {
+  margin: 0 0 0.35rem;
+  color: var(--slate);
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+}
+
+.talk-card__title {
+  font-size: clamp(1.375rem, calc(1rem + 0.8vw), 1.75rem);
+  font-weight: 680;
+  line-height: 1.18;
+}
+
+.talk-card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.talk-card__title a:hover {
+  text-decoration: underline;
+}
+
+.talk-card__text {
+  margin: 0.75rem 0 0;
+  max-width: 36rem;
+}
+
+/* Post list --------------------------------------------------------------- */
+
+.post-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--mist);
+}
+
+.post-item {
+  border-bottom: 1px solid var(--mist);
+}
+
+.post-item__link {
+  display: grid;
+  gap: 0.25rem 2rem;
+  padding: 1.35rem 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (min-width: 48rem) {
+  .post-item__link {
+    grid-template-columns: 10rem minmax(0, 1fr);
+  }
+
+  .post-item__excerpt {
+    grid-column: 2;
+  }
+}
+
+.post-item__date {
+  color: var(--slate);
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-variant-numeric: lining-nums proportional-nums;
+  line-height: 1.9;
+}
+
+.post-item__title {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, calc(1rem + 0.7vw), 1.625rem);
+  font-weight: 640;
+  font-stretch: 105%;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.post-item__link:hover .post-item__title {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+}
+
+.post-item__excerpt {
+  max-width: var(--measure);
+  color: var(--slate);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Gallery: justified rows ------------------------------------------------- */
+
+.gallery {
+  --row: 17rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.5rem, 1.2vw, 1rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Rows always fill the width; a lone last photo is capped and cropped
+   (object-fit) rather than blown up to full-width height. */
+.gallery__item {
+  flex-grow: calc(var(--ar) * 100);
+  flex-basis: calc(var(--ar) * var(--row));
+  aspect-ratio: var(--ar);
+  max-height: 80vh;
+  overflow: hidden;
+}
+
+.gallery__item a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease), filter 0.7s var(--ease);
+}
+
+.gallery__item a:hover img {
+  transform: scale(1.025);
+}
+
+@media (min-width: 64rem) {
+  .gallery {
+    --row: 18rem;
+  }
+}
+
+@media (max-width: 39.99rem) {
+  .gallery {
+    --row: 11rem;
+  }
+}

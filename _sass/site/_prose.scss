@@ -1,0 +1,163 @@
+/* Long-form text: posts, pages and the about.md sections. */
+
+.prose > * {
+  max-width: var(--measure);
+}
+
+.prose > * + * {
+  margin-top: 0;
+}
+
+.prose h2 {
+  margin: 2.6em 0 0.7em;
+  font-size: clamp(1.5rem, calc(1.1rem + 1vw), 2rem);
+}
+
+.prose h3 {
+  margin: 2.2em 0 0.6em;
+  font-size: clamp(1.25rem, calc(1rem + 0.6vw), 1.5rem);
+  font-weight: 640;
+}
+
+.prose h4 {
+  margin: 2em 0 0.5em;
+  font-size: 1.125rem;
+  font-weight: 640;
+}
+
+.prose > h2:first-child,
+.prose > h3:first-child {
+  margin-top: 0;
+}
+
+.prose ul,
+.prose ol {
+  margin: 0 0 1.1em;
+  padding-left: 1.4em;
+}
+
+.prose li {
+  margin: 0.3em 0;
+}
+
+.prose li::marker {
+  color: var(--slate);
+}
+
+.prose strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.prose ins {
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.prose blockquote {
+  margin: 1.6em 0;
+  padding: 0.2em 0 0.2em 1.3em;
+  border-left: 3px solid var(--lagoon);
+  color: var(--slate);
+  font-style: italic;
+}
+
+.prose hr {
+  width: 6rem;
+  margin: 3em 0;
+  border: 0;
+  border-top: 1px solid var(--mist);
+}
+
+.prose img {
+  margin: 2em 0;
+  border-radius: 2px;
+}
+
+.prose figure {
+  margin: 2em 0;
+}
+
+.prose figcaption {
+  margin-top: 0.6em;
+  color: var(--slate);
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+}
+
+.prose table {
+  width: 100%;
+  margin: 1.6em 0;
+  border-collapse: collapse;
+  font-size: 0.9em;
+}
+
+.prose th,
+.prose td {
+  padding: 0.55em 0.75em 0.55em 0;
+  border-bottom: 1px solid var(--mist);
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose th {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.prose code {
+  padding: 0.12em 0.35em;
+  border-radius: 4px;
+  background: var(--haze);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.84em;
+  overflow-wrap: break-word;
+}
+
+.prose pre,
+.prose .highlight {
+  max-width: 48rem;
+  overflow-x: auto;
+  margin: 1.6em 0;
+  border-radius: 6px;
+  background: #0f2a3d;
+  color: #e6eef3;
+}
+
+.prose pre {
+  padding: 1.1em 1.25em;
+  font-size: 0.85em;
+  line-height: 1.6;
+}
+
+.prose .highlight pre {
+  margin: 0;
+  background: none;
+}
+
+.prose pre code {
+  padding: 0;
+  background: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* MathJax display equations scroll instead of overflowing on small screens. */
+.prose mjx-container[display="true"] {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Rouge syntax colours, tuned for the Gulf background. */
+.highlight .c, .highlight .c1, .highlight .cm, .highlight .cs { color: #7f95a6; font-style: italic; }
+.highlight .k, .highlight .kd, .highlight .kn, .highlight .kr, .highlight .kt { color: #7cc7d8; }
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .sb, .highlight .sh { color: #b8dca0; }
+.highlight .m, .highlight .mi, .highlight .mf, .highlight .mh { color: #f2c38b; }
+.highlight .nf, .highlight .nc, .highlight .nn { color: #9fc8ff; }
+.highlight .o, .highlight .p { color: #c6d4de; }
+.highlight .nb, .highlight .bp { color: #e7a6c9; }
+.highlight .err { color: inherit; background: none; }

@@ -1,0 +1,36 @@
+@media print {
+  :root {
+    --paper: #fff;
+    --ink: #000;
+    --text: #111;
+    --slate: #444;
+    --mist: #ccc;
+    --lagoon: #000;
+  }
+
+  .site-nav,
+  .site-footer,
+  .skip-link,
+  .cv-actions,
+  .hero__scroll {
+    display: none !important;
+  }
+
+  body {
+    font-size: 10.5pt;
+  }
+
+  .page {
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .cv-section,
+  .pub,
+  .cv-entry {
+    break-inside: avoid;
+  }
+}

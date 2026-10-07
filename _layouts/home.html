@@ -1,0 +1,105 @@
+---
+layout: default
+nav_overlay: true
+body_class: page-home
+---
+{%- comment -%}
+  Home page. The prose comes from _pages/about.md and is split at each "## " heading:
+  the first section sits beside the portrait, the second (News) gets the dark band,
+  and any further sections follow as plain bands. Add news items or sections in
+  about.md as usual; the hero photo, tagline and statement lines live in its front matter.
+{%- endcomment -%}
+{%- assign hero = page.hero -%}
+{%- assign hero_info = site.data.photos | where: "id", hero.photo | first -%}
+{%- assign hero_meta = site.data.photo_meta[hero.photo] -%}
+
+<section class="hero" data-hero>
+  <figure class="hero__media">
+    {% include photo.html id=hero.photo sizes="100vw" class="hero__img" loading="eager" priority=true %}
+  </figure>
+  <div class="hero__content">
+    <h1 class="hero__name">{{ site.author.name }}</h1>
+    <p class="hero__line">{{ hero.tagline }}</p>
+    {% include profile-links.html class="hero__links" %}
+  </div>
+  {%- if hero_info %}
+  <p class="hero__caption">{{ hero_info.title }}{% if hero_info.place != "" %}, {{ hero_info.place }}{% endif %}, {{ hero_meta.taken | date: "%Y" }}</p>
+  {%- endif %}
+  <a class="hero__scroll" href="#about" aria-label="Skip to About">{% include icon.html name="down" %}</a>
+</section>
+
+{%- assign chunks = content | split: '<h2' -%}
+{%- assign lead = chunks[0] | strip -%}
+{%- for chunk in chunks offset: 1 -%}
+  {%- capture section_html %}<h2{{ chunk }}{% endcapture -%}
+  {%- if forloop.index == 1 %}
+<section class="about" id="about">
+  <div class="about__inner">
+    <figure class="about__portrait">
+      <img src="{{ site.author.avatar | prepend: '/images/' | relative_url }}" alt="Portrait of {{ site.author.name }}" width="872" height="894" loading="lazy" decoding="async">
+    </figure>
+    <div class="about__text prose">
+      <p class="about__hello">{{ page.title }}</p>
+      {{ lead }}
+      {{ section_html }}
+    </div>
+  </div>
+</section>
+{% include statement.html lines=page.statement %}
+  {%- elsif forloop.index == 2 %}
+<section class="band band--dark news">
+  <div class="band__inner prose">
+    {{ section_html | replace: '<p><strong>', '<p class="news-item"><strong class="news-item__date">' | replace: '</strong>: ', '</strong> ' }}
+  </div>
+</section>
+  {%- else %}
+<section class="band prose-band">
+  <div class="band__inner prose">
+    {{ section_html }}
+  </div>
+</section>
+  {%- endif -%}
+{%- endfor %}
+
+{%- assign featured_talks = site.talks | where: "featured", true | sort: "date" | reverse -%}
+{%- if featured_talks.size > 0 %}
+<section class="band band--haze talks-band">
+  <div class="band__inner">
+    <header class="band__head">
+      <h2>Talks</h2>
+      <a href="{{ '/talks/' | relative_url }}">All talks</a>
+    </header>
+    <div class="talk-cards">
+      {%- for talk in featured_talks limit: 2 %}
+        {% include talk-card.html talk=talk %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+<section class="band writing">
+  <div class="band__inner">
+    <header class="band__head">
+      <h2>Blog</h2>
+      <a href="{{ '/blogs' | relative_url }}">All posts</a>
+    </header>
+    <ol class="post-list">
+      {%- for post in site.posts limit: 5 %}
+        {% include post-item.html post=post %}
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+{%- if site.data.photos.size > 0 %}
+<section class="band photos">
+  <div class="band__inner">
+    <header class="band__head">
+      <h2>Photography</h2>
+      <a href="{{ '/photography/' | relative_url }}">All photographs</a>
+    </header>
+    {% include gallery.html photos=site.data.photos limit=6 %}
+  </div>
+</section>
+{%- endif %}

@@ -1,0 +1,49 @@
+/* Design tokens.
+   Colours are sampled from the photographs: Caribbean sky and sea, the deep
+   water of the dark band (Gulf) and the turquoise of the lagoon. The pages stay
+   ink-on-paper so the photographs carry the colour. */
+
+:root {
+  --paper: #ffffff;
+  --ink: #12212e;
+  --text: #24323d;
+  --slate: #5b6b78;
+  --mist: #e4eaef;
+  --haze: #f3f6f8;
+  --gulf: #0f2a3d;
+  --gulf-ink: #e6eef3;
+  --gulf-slate: #9fb3c2;
+  --lagoon: #0f6e99;
+  --shallows: #7cc7d8;
+  --nav-bg: rgba(255, 255, 255, 0.9);
+  --shadow: 0 1px 2px rgba(18, 33, 46, 0.06), 0 12px 32px -12px rgba(18, 33, 46, 0.22);
+
+  --font-display: "Mona Sans", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-text: Charter, "Charis SIL", "Iowan Old Style", Georgia, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  --max: 76rem;
+  --measure: 40rem;
+  --gutter: clamp(1.25rem, calc(0.5rem + 3vw), 3rem);
+  --band-pad: clamp(4rem, calc(2rem + 6vw), 8rem);
+  --nav-h: 4.25rem;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0b1823;
+    --ink: #eaf1f5;
+    --text: #cbd7df;
+    --slate: #93a7b6;
+    --mist: #1d3242;
+    --haze: #10222f;
+    --gulf: #07121a;
+    --gulf-ink: #e6eef3;
+    --gulf-slate: #93a7b6;
+    --lagoon: #7cc7d8;
+    --shallows: #7cc7d8;
+    --nav-bg: rgba(11, 24, 35, 0.88);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 32px -12px rgba(0, 0, 0, 0.6);
+  }
+}

@@ -1,0 +1,10 @@
+{%- assign post = include.post -%}
+<li class="post-item">
+  <a class="post-item__link" href="{{ post.url | relative_url }}">
+    <time class="post-item__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+    <span class="post-item__title">{{ post.title | markdownify | remove: '<p>' | remove: '</p>' | strip }}</span>
+    {%- if include.excerpt and post.excerpt %}
+    <span class="post-item__excerpt">{{ post.excerpt | strip_html | truncatewords: 32 }}</span>
+    {%- endif %}
+  </a>
+</li>

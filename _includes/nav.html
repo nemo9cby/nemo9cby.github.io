@@ -1,0 +1,20 @@
+<header class="site-nav{% if include.overlay %} site-nav--overlay{% endif %}" data-nav>
+  <div class="site-nav__inner">
+    <a class="site-nav__name" href="{{ '/' | relative_url }}">{{ site.author.name }}</a>
+    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+      {% include icon.html name="menu" %}<span>Menu</span>
+    </button>
+    <nav class="site-nav__menu" id="site-menu" aria-label="Main">
+      <ul>
+        {%- for link in site.data.navigation.main -%}
+          {%- assign href = link.url -%}
+          {%- unless href contains '://' -%}{%- assign href = link.url | relative_url -%}{%- endunless -%}
+          {%- assign current = false -%}
+          {%- if link.url != '/' and page.url contains link.url -%}{%- assign current = true -%}{%- endif -%}
+          {%- if link.url == '/blogs' and page.collection == 'posts' -%}{%- assign current = true -%}{%- endif -%}
+          <li><a href="{{ href }}"{% if current %} aria-current="page"{% endif %}>{{ link.title }}</a></li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+  </div>
+</header>

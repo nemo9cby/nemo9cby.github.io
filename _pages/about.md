@@ -1,11 +1,24 @@
 ---
+layout: home
 permalink: /
 title: "Hi, I am Boyuan, an SE / AI Researcher."
 author_profile: true
-
+# Home page hero and the photo-filled statement (photo ids from _data/photos.yml)
+hero:
+  photo: DSC01521
+  tagline: "Researcher at Huawei Canada, post-training language models for software engineering."
+statement:
+  - text: "Researcher,"
+    photo: DSC01202
+  - text: "Engineer,"
+    photo: DSC01171
+    position: "40% 45%"
+  - text: "Photographer"
+    photo: DSC01521
+    position: "50% 30%"
 ---
 
-## 👤 About Me
+## About Me
 
 I am a Principal Researcher at Centre for Software Excellence, Huawei Canada.
 
@@ -16,7 +29,7 @@ I received my Ph.D degree in Software Engineering from York University, Canada, 
 
 Many of our team's work is contributed to [Ray](https://ray.io), a popular open source distributed computing framework. For instance, We provided the native Ascend support for Ray. Our talk at Ray Summit 2024 is [here](https://youtu.be/TSAWC-ZZwv4?si=Ht30wHcPAr2h8Aca).
 
-## 🆕 News
+## News
 
 **2025-09-18**: New paper on evaluating SWE agents under resource constraints! We introduce SWE-Effi, new metrics that balance solution accuracy with resource consumption. We found that AI system effectiveness depends on scaffold-model integration, and identified challenges like the "token snowball" effect and "expensive failures" where agents consume excessive resources on unsolvable tasks. Check it out [here](https://arxiv.org/abs/2509.09853).
 
@@ -31,7 +44,7 @@ Many of our team's work is contributed to [Ray](https://ray.io), a popular open 
 **2024-10-08**: New vision paper on the future of software engineering! We propose "SE 3.0", an AI-native paradigm shift from task-driven copilots to intent-first, conversation-oriented development with AI teammates. This paper outlines a roadmap of challenges to realize truly intelligent AI collaborators that understand software engineering principles and developer intents. Read it [here](https://arxiv.org/abs/2410.06107).
 
 
-## 📚 Selected Publications ([Full List](https://scholar.google.com/citations?hl=en&user=HsUXC7oAAAAJ))
+## Selected Publications ([Full List](https://scholar.google.com/citations?hl=en&user=HsUXC7oAAAAJ))
 
 - **SWE-Effi: Re-Evaluating Software AI Agent System Effectiveness Under Resource Constraints**.\
   Zhiyu Fan, Kirill Vasilevski, Dayi Lin, <ins>Boyuan Chen</ins>, Yihao Chen, Zhiqing Zhong, Jie M. Zhang, Pinjia He, Ahmed E. Hassan.\
