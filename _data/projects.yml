@@ -1,0 +1,70 @@
+# Projects shown on /portfolio/ (nav: Projects), grouped and in display order.
+- group: "Sites"
+  items:
+    - name: "EveryAI"
+      url: "https://www.chenboyuan.com/everyai/"
+      repo: "https://github.com/nemo9cby/everyai"
+      year: 2026
+      text: "Daily digests of AI papers on coding agents, post-training and software engineering."
+    - name: "CN AI Brief"
+      url: "https://www.chenboyuan.com/cn-ai-brief/"
+      repo: "https://github.com/nemo9cby/cn-ai-brief"
+      year: 2026
+      text: "English source cards that summarize high-signal Chinese AI discussions, from Zhihu to podcasts."
+    - name: "gstack in Plain Words"
+      url: "https://www.chenboyuan.com/gstack-in-plain-words/"
+      repo: "https://github.com/nemo9cby/gstack-in-plain-words"
+      year: 2026
+      text: "A short book on the thinking behind each gstack AI-workflow skill, without the code."
+    - name: "Humanizer A/B log"
+      url: "/humanizer/"
+      year: 2026
+      text: "Before-and-after comparisons of AI-generated text run through a humanizer pipeline."
+    - name: "GTA housing market dashboard"
+      url: "/realmaster/"
+      year: 2026
+      text: "An interactive look at the Greater Toronto Area real-estate market (in Chinese)."
+- group: "Tools"
+  items:
+    - name: "hf_viewer"
+      repo: "https://github.com/nemo9cby/hf_viewer"
+      year: 2026
+      text: "A transcript-style viewer for agentic datasets on Hugging Face."
+    - name: "code-to-printable"
+      repo: "https://github.com/nemo9cby/code-to-printable"
+      year: 2026
+      text: "Turns a GitHub repository into a print-ready PDF, for reading code on paper."
+    - name: "skills"
+      repo: "https://github.com/nemo9cby/skills"
+      year: 2026
+      text: "My reusable agent skills for Claude Code and Codex."
+    - name: "claude-code-doc-monitor"
+      repo: "https://github.com/nemo9cby/claude-code-doc-monitor"
+      year: 2026
+      text: "Watches the Claude Code documentation and reports what changed."
+    - name: "rl-from-scratch"
+      repo: "https://github.com/nemo9cby/rl-from-scratch"
+      year: 2025
+      text: "Notebooks from learning reinforcement learning from scratch."
+- group: "Research code and resources"
+  items:
+    - name: "MindForge-27B"
+      url: "https://huggingface.co/centre-for-swe/MindForge-27B"
+      year: 2026
+      text: "Model weights and training trajectories from the MindForge paper."
+    - name: "ICSE2022Rep"
+      repo: "https://github.com/nemo9cby/ICSE2022Rep"
+      year: 2022
+      text: "Replication package for Towards Training Reproducible Deep Learning Models."
+    - name: "awesome-se4ai"
+      repo: "https://github.com/nemo9cby/awesome-se4ai"
+      year: 2021
+      text: "A curated list of papers and resources on software engineering for AI."
+    - name: "logging-code-issue"
+      repo: "https://github.com/loggingcode/logging-code-issue"
+      year: 2019
+      text: "A catalog of research on logging-code issues."
+    - name: "LogCoCo"
+      repo: "https://github.com/nemo9cby/LogCoCo"
+      year: 2018
+      text: "Code-coverage estimation from execution logs (ASE 2018)."

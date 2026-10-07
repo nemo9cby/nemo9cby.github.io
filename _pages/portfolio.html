@@ -1,14 +1,24 @@
 ---
 layout: archive
-title: "Portfolio"
+title: "Projects"
 permalink: /portfolio/
+lede: "Things I build on the side: small sites, tools I use every day, and research code."
 author_profile: true
 ---
 
-{% include base_path %}
-
-
-{% for post in site.portfolio %}
-  {% include archive-single.html %}
+{% for group in site.data.projects %}
+<section class="list-section">
+  <h2 class="list-section__title">{{ group.group }}</h2>
+  <ul class="project-list">
+    {%- for p in group.items %}
+    {%- assign href = p.url | default: p.repo -%}
+    {%- unless href contains '://' %}{% assign href = href | relative_url %}{% endunless %}
+    <li class="project">
+      <h3 class="project__name"><a href="{{ href }}">{{ p.name }}</a></h3>
+      <p class="project__text">{{ p.text }}</p>
+      <p class="project__meta">{{ p.year }}{% if p.url and p.repo %} <a href="{{ p.repo }}">Source</a>{% endif %}</p>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
 {% endfor %}
-

@@ -6,6 +6,8 @@ main:
     url: /publications/
   - title: "Talks"
     url: /talks/
+  - title: "Projects"
+    url: /portfolio/
   - title: "Blog"
     url: /blogs
   - title: "Photography"
