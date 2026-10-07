@@ -20,6 +20,8 @@ Branch: `redesign` (based on `origin/master` @ 5f84d3f). Nothing has been pushed
 - ASE Program Committee: site says 2024 (found on the ASE 2024 committee page);
   the resume says 2025 and no ASE 2025 committee page lists you.
 - CV mirrors resume v7 minus the phone number, including "Pangu" and team size.
+- CV Education adds "M.A.Sc. (2017)" (your York M.A.Sc. thesis is public and listed
+  on /publications/); the resume shows only the Ph.D.
 - Email chenfsd@gmail.com is shown in the footer/CV.
 - X handle is @boyuan_chen (@nemocbb now 404s).
 - Photos: only scenery, no people (6 frames approved on 2026-10-06).
@@ -39,7 +41,9 @@ Branch: `redesign` (based on `origin/master` @ 5f84d3f). Nothing has been pushed
 
 ## How to preview / ship
 - `bundle exec jekyll serve --config _config.yml,_config.dev.yml`
-- Ship: `git checkout master && git merge redesign && git push` (GitHub Pages builds master).
+- Ship (another machine pushes to master, so update first):
+  `git fetch origin && git checkout master && git merge --ff-only origin/master && git merge --ff-only redesign && git push`.
+  If the second ff-only fails, rebase `redesign` onto `origin/master` first.
 
 ## Next steps
 - Add more scenery photos: `uv run scripts/photos.py add <jpg>` then edit `_data/photos.yml`.
