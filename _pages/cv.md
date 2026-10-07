@@ -95,6 +95,7 @@ Advised by [Zhen Ming (Jack) Jiang](https://www.eecs.yorku.ca/~zmjiang/). NSERC 
 - Program Committee, ASE 2024 (Research Papers).
 - Curriculum Committee, AIware Leadership Bootcamp 2024, AIware Bootcamp Mini 2025 and AIware Bootcamp Europe 2025.
 - Reviewer, IEEE Transactions on Software Engineering (2021–2025).
+- Reviewer, Empirical Software Engineering (2026).
 </div>
 </section>
 
@@ -103,7 +104,7 @@ Advised by [Zhen Ming (Jack) Jiang](https://www.eecs.yorku.ca/~zmjiang/). NSERC 
 
 <div markdown="1">
 {% assign pubs = site.publications | sort: "date" | reverse %}
-{% assign theses = pubs | where_exp: "p", "p.venue contains 'thesis'" %}{{ pubs.size | minus: theses.size }} papers and preprints and {{ theses.size }} theses, listed on the [publications page]({{ '/publications/' | relative_url }}) and [Google Scholar]({{ site.author.googlescholar }}).
+{% assign theses = pubs | where_exp: "p", "p.venue contains 'thesis'" %}{{ pubs.size | minus: theses.size }} papers and preprints and {{ theses.size }} theses, plus {{ site.data.patents.size }} patents and patent applications, listed on the [publications page]({{ '/publications/' | relative_url }}) and [Google Scholar]({{ site.author.googlescholar }}).
 </div>
 </section>
 

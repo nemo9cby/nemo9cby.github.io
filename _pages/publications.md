@@ -18,3 +18,17 @@ author_profile: true
   </ol>
 </section>
 {% endfor %}
+
+{% if site.data.patents %}
+<section class="list-section" id="patents">
+  <h2 class="list-section__title">Patents <span class="list-section__count">{{ site.data.patents.size }}</span></h2>
+  <ol class="pub-list">
+    {%- for p in site.data.patents %}
+    <li class="pub">
+      <p class="pub__venue">{{ p.number }}<span>{{ p.status }}</span></p>
+      <h3 class="pub__title"><a href="{{ p.url }}">{{ p.title }}</a></h3>
+    </li>
+    {%- endfor %}
+  </ol>
+</section>
+{% endif %}

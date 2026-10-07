@@ -10,4 +10,6 @@ excerpt: Effectiveness metrics that weigh SWE-agent resolve rates against the to
 links:
 - label: Code
   url: https://github.com/Centre-for-Software-Excellence/SWE-Effi
+- label: Leaderboard
+  url: https://centre-for-software-excellence.github.io/SWE-Effi/
 ---

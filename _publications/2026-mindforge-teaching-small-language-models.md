@@ -14,4 +14,6 @@ links:
   url: https://huggingface.co/centre-for-swe/MindForge-27B
 - label: Dataset
   url: https://huggingface.co/datasets/centre-for-swe/MindForge-27B-Training-Trajectories
+- label: Cited by Xiaomi CodeMidas
+  url: https://arxiv.org/abs/2609.22068
 ---

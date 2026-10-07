@@ -56,6 +56,10 @@
       repo: "https://github.com/loggingcode/logging-code-issue"
       year: 2019
       text: "A catalog of research on logging-code issues."
+    - name: "Logging fixes in Apache projects"
+      url: "https://issues.apache.org/jira/issues/?jql=reporter%3Dchenfsd"
+      year: 2016
+      text: "Log-improvement reports to Hadoop, HBase, Camel, Maven and ActiveMQ from my ICSE 2017 study; five were fixed upstream."
     - name: "LogCoCo"
       repo: "https://github.com/nemo9cby/LogCoCo"
       year: 2018
