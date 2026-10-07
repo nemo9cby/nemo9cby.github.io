@@ -37,12 +37,34 @@ Branch: `redesign` (based on `origin/master` @ 5f84d3f). Nothing has been pushed
 - `site.url` stays https://chenboyuan.com (apex) so feed entry ids don't change.
 - Photos: only scenery, no people (6 frames approved on 2026-10-06).
 
-## To clean up last (owner: 'leave to the end')
-- /humanizer/ is broken on the live site too: its inline DATA has raw newlines
-  inside JS strings and a schema render() no longer expects. The daily job on
-  your other machine writes it; fix the generator (json.dumps) there.
-- /realmaster/ shows generated listings under a 'HouseSigma, Zolo, CREA' source
-  credit. Both are left off the Projects page until fixed.
+## /humanizer/ and /realmaster/ (diagnosed 2026-10-07, not yet changed)
+### humanizer
+- Publisher: OpenClaw cron agent turn "Sync Humanizer Page to GitHub Pages" (daily 23:00)
+  on the gateway Mac (Nemos-MacBook-Pro-4584.local, likely Nemo-mbp15). Not on this Mac.
+- Blank page: data is spliced into `const DATA` through a step that turns `\n` escapes
+  into real newlines (e.g. re.sub with a string replacement), so the script fails to
+  parse. 22 of 27 versions, including the live one.
+- Schema drift: render() expects the 2026-02-22 fields; later data uses ~20 key sets,
+  and the live DATA is a single object, not a list.
+- Resets: agents sometimes overwrite the log instead of appending (02-28, 03-20).
+- Silent failure: nothing pushed since 2026-03-20 while the job reports ok.
+- Privacy: the page source and public git history hold an AI-invented "I own NVDA"
+  line, 43 unpublished XHS drafts, bot-check scores, strategy labels and replies to
+  208 named X accounts.
+- Fix if kept: pause the job first; data.json + JSON.parse + a normalizer; an
+  append-only JSONL log written by code (json.dump); verify the push.
+### realmaster
+- Everything shown is generated mock data (2026-02-22 Codex run) but credited to
+  HouseSigma/Zolo/CREA and "Claude API"; fake sales use real street names; the AI tab
+  is canned text that contradicts the charts; dates show a day early; favicon 404;
+  mobile overflow; data stops at 2025-12.
+- The scraper never produced usable sold dates (7,012 of 7,364 rows have none).
+- Source is uncommitted (~/Projects/vibe_ideas/realmaster); a HouseSigma access token
+  is hardcoded in 24 backend files: move it to .env, gitignore, log out to revoke it.
+- Options: label as a demo and fix (recommended) / real monthly aggregates / remove.
+### Security on this Mac (m4p)
+- ~/.openclaw/exec-approvals.json: security=full, ask=off (remote agents run any command).
+- ~/.zsh_history has an OPENCLAW_GATEWAY_TOKEN export: rotate it and delete the line.
 
 ## How to preview / ship
 - `bundle exec jekyll serve --config _config.yml,_config.dev.yml`
