@@ -18,8 +18,10 @@ Branch: `redesign` (based on `origin/master` @ 5f84d3f). Nothing has been pushed
 - ASE Program Committee: 2024 (confirmed). The resume PDF still says 2025.
 - "A Hitchhiker's guide towards training" (2025-03-08) was an untracked local
   draft you don't remember: moved to `_drafts/ultrabook-intro.md`, not published.
-- CV page links the resume PDF as-is: `files/Boyuan_Chen_CV.pdf` (copy of
-  Boyuan_Chen_Resume_Kami_v7.pdf). It contains your phone number and plain email.
+- CV page links `files/Boyuan_Chen_CV.pdf`: resume v7 re-rendered without the phone
+  number and with ASE 2024 (WeasyPrint 68.0 + the original PDF's embedded Charter
+  fonts; copy at ~/Downloads/Recents/Boyuan_Chen_Resume_Kami_v7_web.pdf). Your
+  original v7 HTML/PDF still say ASE 2025.
 - Email is never plain text on the site: it is drawn as SVG outlines
   (`_includes/email-svg.html`, regenerate with `uv run scripts/email_svg.py ADDRESS`)
   and site.js builds the mailto: from `author.email_parts`. Feed has no email.
