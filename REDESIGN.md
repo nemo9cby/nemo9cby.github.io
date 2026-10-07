@@ -23,6 +23,19 @@ Branch: `redesign` (based on `origin/master` @ 5f84d3f). Nothing has been pushed
 - Email chenfsd@gmail.com is shown in the footer/CV.
 - X handle is @boyuan_chen (@nemocbb now 404s).
 - Photos: only scenery, no people (6 frames approved on 2026-10-06).
+- Your About portrait (images/profile.png) is kept; talk cards/pages now use
+  scenery posters and load YouTube only on click, so no speaker thumbnails show.
+- CATO News item: numbers corrected to the paper (10% goodput, 41.1%
+  utilization); the 'internally deployed into Huawei Cloud / Ascend' claim is
+  yours and kept. Remove it if it should not be public.
+- `site.url` stays https://chenboyuan.com (apex) so feed entry ids don't change.
+
+## Found in your existing pages (not changed)
+- /humanizer/ is broken on the live site too: its inline DATA has raw newlines
+  inside JS strings and a schema render() no longer expects. The daily job on
+  your other machine writes it; fix the generator (json.dumps) there.
+- /realmaster/ shows generated listings under a 'HouseSigma, Zolo, CREA' source
+  credit. Both are left off the Projects page until fixed.
 
 ## How to preview / ship
 - `bundle exec jekyll serve --config _config.yml,_config.dev.yml`
