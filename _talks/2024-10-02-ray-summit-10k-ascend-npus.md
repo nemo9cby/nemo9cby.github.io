@@ -7,7 +7,6 @@ date: 2024-10-02
 location: "San Francisco, CA"
 role: "Speaker, with Chong Yin Tan and Xiaoshuang Liu"
 youtube_id: TSAWC-ZZwv4
-poster: DSC01533
 video: "https://www.youtube.com/watch?v=TSAWC-ZZwv4"
 featured: true
 excerpt: "How our team runs Ray on clusters of 10,000 Huawei Ascend NPUs."

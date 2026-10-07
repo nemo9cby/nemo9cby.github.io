@@ -162,18 +162,42 @@ html:not(.js) .site-nav--overlay {
 
 .site-footer__email {
   color: #fff;
-  font-size: clamp(1.5rem, calc(0.9rem + 2.6vw), 3rem);
-  font-weight: 700;
-  font-stretch: 115%;
-  letter-spacing: -0.02em;
-  text-decoration: none;
-  overflow-wrap: anywhere;
+  font-size: 1.125rem;
 }
 
-.site-footer__email:hover {
-  text-decoration: underline;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 0.18em;
+.site-footer__email:hover .email-svg {
+  opacity: 0.8;
+}
+
+@media (min-width: 48rem) {
+  .site-footer__inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+  }
+
+  .site-footer__fine {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Email drawn as outlines (see _includes/email.html). */
+.email-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  color: inherit;
+  text-decoration: none;
+}
+
+.email-link .icon {
+  width: 1.05em;
+  height: 1.05em;
+  opacity: 0.8;
+}
+
+.email-svg {
+  display: block;
+  width: auto;
 }
 
 .site-footer__links {

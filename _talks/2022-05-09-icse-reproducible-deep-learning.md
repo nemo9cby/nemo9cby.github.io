@@ -7,7 +7,6 @@ date: 2022-05-09
 location: "Online"
 role: "Speaker"
 youtube_id: ytasbkSxUI8
-poster: DSC01532
 video: "https://www.youtube.com/watch?v=ytasbkSxUI8"
 links:
   - label: "Paper"

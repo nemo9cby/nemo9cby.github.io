@@ -13,10 +13,9 @@ layout: default
   </header>
 
   {%- if page.youtube_id %}
-  {%- assign poster = page.poster | default: site.data.photos.first.id -%}
   <div class="video-embed" data-video="{{ page.youtube_id }}" data-video-title="{{ page.title | escape }}">
     <a class="video-embed__poster" href="https://www.youtube.com/watch?v={{ page.youtube_id }}">
-      {% include photo.html id=poster sizes="(min-width: 60rem) 56rem, 100vw" %}
+      <img src="https://i.ytimg.com/vi/{{ page.youtube_id }}/{{ page.youtube_thumb | default: 'maxresdefault' }}.jpg" alt="" width="1280" height="720" decoding="async">
       <span class="video-embed__play">{% include icon.html name="play" %}Play video</span>
     </a>
   </div>

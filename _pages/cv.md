@@ -10,11 +10,11 @@ redirect_from:
 ---
 
 <div class="cv-actions">
-  <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
+  {% include email.html %}
   <a href="{{ site.author.googlescholar }}">Google Scholar</a>
   <a href="https://github.com/{{ site.author.github }}">GitHub</a>
   <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}/">LinkedIn</a>
-  <button type="button" class="cv-print" onclick="window.print()">Print or save as PDF</button>
+  <a href="{{ '/files/Boyuan_Chen_CV.pdf' | relative_url }}">Download PDF</a>
 </div>
 
 <section class="cv-section prose" markdown="1">

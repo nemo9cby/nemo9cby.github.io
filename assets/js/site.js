@@ -176,10 +176,22 @@
     });
   }
 
+  /* Email links carry the address only as base64 parts (data-email="user|domain"). */
+  function initEmail() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-email]'), function (link) {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        var parts = link.getAttribute('data-email').split('|').map(function (p) { return window.atob(p); });
+        window.location.href = 'mailto:' + parts[0] + '@' + parts[1];
+      });
+    });
+  }
+
   ready(function () {
     initNav();
     initLightbox();
     initNews();
     initVideos();
+    initEmail();
   });
 })();

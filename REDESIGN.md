@@ -14,25 +14,26 @@ Branch: `redesign` (based on `origin/master` @ 5f84d3f). Nothing has been pushed
 - Content refreshed from resume v7 and a verified sweep of public links
   (37 publications/theses, 12 talks, projects, profiles).
 
-## Decisions to confirm (owner)
-- `_posts/2025-03-08-ultrabook-intro.md` was an untracked local draft; it is
-  committed on this branch and will be published on merge.
-- ASE Program Committee: site says 2024 (found on the ASE 2024 committee page);
-  the resume says 2025 and no ASE 2025 committee page lists you.
+## Decisions (owner answers, 2026-10-07)
+- ASE Program Committee: 2024 (confirmed). The resume PDF still says 2025.
+- "A Hitchhiker's guide towards training" (2025-03-08) was an untracked local
+  draft you don't remember: moved to `_drafts/ultrabook-intro.md`, not published.
+- CV page links the resume PDF as-is: `files/Boyuan_Chen_CV.pdf` (copy of
+  Boyuan_Chen_Resume_Kami_v7.pdf). It contains your phone number and plain email.
+- Email is never plain text on the site: it is drawn as SVG outlines
+  (`_includes/email-svg.html`, regenerate with `uv run scripts/email_svg.py ADDRESS`)
+  and site.js builds the mailto: from `author.email_parts`. Feed has no email.
+- Talk covers are the real YouTube thumbnails; the player loads on click.
 - CV mirrors resume v7 minus the phone number, including "Pangu" and team size.
 - CV Education adds "M.A.Sc. (2017)" (your York M.A.Sc. thesis is public and listed
   on /publications/); the resume shows only the Ph.D.
-- Email chenfsd@gmail.com is shown in the footer/CV.
-- X handle is @boyuan_chen (@nemocbb now 404s).
-- Photos: only scenery, no people (6 frames approved on 2026-10-06).
-- Your About portrait (images/profile.png) is kept; talk cards/pages now use
-  scenery posters and load YouTube only on click, so no speaker thumbnails show.
 - CATO News item: numbers corrected to the paper (10% goodput, 41.1%
-  utilization); the 'internally deployed into Huawei Cloud / Ascend' claim is
-  yours and kept. Remove it if it should not be public.
+  utilization); the 'internally deployed into Huawei Cloud / Ascend' claim stays (OK'd).
+- About portrait (images/profile.png) kept.
 - `site.url` stays https://chenboyuan.com (apex) so feed entry ids don't change.
+- Photos: only scenery, no people (6 frames approved on 2026-10-06).
 
-## Found in your existing pages (not changed)
+## To clean up last (owner: 'leave to the end')
 - /humanizer/ is broken on the live site too: its inline DATA has raw newlines
   inside JS strings and a schema render() no longer expects. The daily job on
   your other machine writes it; fix the generator (json.dumps) there.

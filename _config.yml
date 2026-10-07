@@ -94,7 +94,8 @@ author:
   employer         : "Huawei Canada"
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=HsUXC7oAAAAJ"
-  email            : "chenfsd@gmail.com"
+  email            : # left blank on purpose: no plain address in pages or the feed
+  email_parts      : ["Y2hlbmZzZA==", "Z21haWwuY29t"] # base64 of the user and domain; shown as an image (_includes/email-svg.html)
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :

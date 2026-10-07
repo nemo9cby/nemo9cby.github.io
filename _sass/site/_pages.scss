@@ -414,18 +414,6 @@
   min-height: 60vh;
 }
 
-.cv-print {
-  padding: 0;
-  border: 0;
-  background: none;
-  color: var(--lagoon);
-  font: inherit;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
-  cursor: pointer;
-}
-
 .cv-page .cv-section > h2 {
   margin: 0;
 }
@@ -548,4 +536,8 @@
 
 .video-embed__poster:hover .video-embed__play {
   background: #fff;
+}
+
+.cv-actions .email-link {
+  color: var(--lagoon);
 }

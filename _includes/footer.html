@@ -3,9 +3,7 @@
   <div class="site-footer__inner">
     <div class="site-footer__contact">
       <p class="site-footer__lede">Say hello</p>
-      {%- if author.email -%}
-        <a class="site-footer__email" href="mailto:{{ author.email }}">{{ author.email }}</a>
-      {%- endif -%}
+      {% include email.html class="site-footer__email" %}
     </div>
     <ul class="site-footer__links">
       {%- if author.googlescholar %}<li><a href="{{ author.googlescholar }}">{% include icon.html name="scholar" %}Google Scholar</a></li>{% endif -%}

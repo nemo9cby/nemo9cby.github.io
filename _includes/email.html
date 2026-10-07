@@ -1,0 +1,11 @@
+{%- comment -%}
+  Email without a plain-text address in the HTML: the address is drawn as SVG
+  outlines (_includes/email-svg.html) and site.js builds the mailto: link from
+  author.email_parts on click. include.icon_only=true renders just the icon.
+{%- endcomment -%}
+{%- if site.author.email_parts -%}
+<a class="email-link{% if include.class %} {{ include.class }}{% endif %}" href="#" data-email="{{ site.author.email_parts | join: '|' }}" aria-label="Email {{ site.author.name }}">
+  {%- include icon.html name="mail" -%}
+  {%- unless include.icon_only %}{% include email-svg.html %}{% endunless -%}
+</a>
+{%- endif -%}

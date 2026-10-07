@@ -7,7 +7,6 @@ date: 2025-11-05
 location: "San Francisco, CA"
 role: "Speaker, with Zhilong Chen and FengChun Hua"
 youtube_id: gIuvVwt6cX8
-poster: DSC01524
 video: "https://www.youtube.com/watch?v=gIuvVwt6cX8"
 featured: true
 excerpt: "A Ray Compiled Graphs extension with an NPU backend for faster vLLM inference on Ascend NPUs."
