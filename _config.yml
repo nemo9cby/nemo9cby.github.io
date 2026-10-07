@@ -208,6 +208,11 @@ collections:
 
 # Defaults
 defaults:
+  # every page: link-preview image (jekyll-seo-tag); override with image: in front matter
+  - scope:
+      path: ""
+    values:
+      image: /images/og-image.jpg
   # _posts
   - scope:
       path: ""
