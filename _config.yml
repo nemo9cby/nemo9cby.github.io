@@ -210,6 +210,15 @@ collections:
 
 # Defaults
 defaults:
+  # standalone apps: keep them out of sitemap.xml (they are not linked from the site)
+  - scope:
+      path: "humanizer"
+    values:
+      sitemap: false
+  - scope:
+      path: "realmaster"
+    values:
+      sitemap: false
   # every page: link-preview image (jekyll-seo-tag); override with image: in front matter
   - scope:
       path: ""
