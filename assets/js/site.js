@@ -131,8 +131,30 @@
       '<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="' + path + '"/></svg>';
   }
 
+  /* Long news lists show the newest items first; the rest stay one click away. */
+  function initNews() {
+    var news = document.querySelector('.news .prose');
+    if (!news) return;
+    var items = news.querySelectorAll('.news-item');
+    var visible = 7;
+    if (items.length <= visible + 1) return;
+    news.classList.add('is-collapsed');
+    var button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'news-more';
+    button.textContent = 'Show ' + (items.length - visible) + ' earlier items';
+    button.addEventListener('click', function () {
+      news.classList.remove('is-collapsed');
+      button.remove();
+      items[visible].setAttribute('tabindex', '-1');
+      items[visible].focus();
+    });
+    news.appendChild(button);
+  }
+
   ready(function () {
     initNav();
     initLightbox();
+    initNews();
   });
 })();

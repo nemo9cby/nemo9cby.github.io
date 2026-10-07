@@ -74,7 +74,7 @@ Built a Hadoop/Python framework to analyze distributed-system logs and detect lo
 <div class="cv-entry__head"><h3>York University</h3><span class="cv-entry__when">Sep 2014 – Oct 2020</span></div>
 <p class="cv-entry__role">Ph.D., Computer Engineering</p>
 
-Advised by [Zhen Ming (Jack) Jiang](https://www.cse.yorku.ca/~zmjiang/). NSERC Canada Graduate Scholarship – Doctoral (CGS-D).
+Advised by [Zhen Ming (Jack) Jiang](https://www.eecs.yorku.ca/~zmjiang/). NSERC Canada Graduate Scholarship – Doctoral (CGS-D).
 </div>
 
 <div class="cv-entry" markdown="1">
@@ -92,7 +92,8 @@ Advised by [Zhen Ming (Jack) Jiang](https://www.cse.yorku.ca/~zmjiang/). NSERC C
 {% for talk in talks %}
 - [{{ talk.title }}]({{ talk.url | relative_url }}). {{ talk.venue }}, {{ talk.date | date: "%Y" }}{% if talk.role %}. {{ talk.role }}{% endif %}.
 {% endfor %}
-- Program Committee, ASE 2025.
+- Program Committee, ASE 2024 (Research Papers).
+- Curriculum Committee, AIware Leadership Bootcamp 2024, AIware Bootcamp Mini 2025 and AIware Bootcamp Europe 2025.
 - Reviewer, IEEE Transactions on Software Engineering (2021–2025).
 </div>
 </section>

@@ -632,3 +632,26 @@
     --row: 11rem;
   }
 }
+
+.news .prose.is-collapsed .news-item:nth-of-type(n+8) {
+  display: none;
+}
+
+.news-more {
+  margin-top: 2rem;
+  padding: 0.7rem 1.25rem;
+  border: 1px solid var(--mist);
+  border-radius: 99px;
+  background: none;
+  color: var(--ink);
+  font: 550 0.9375rem/1 var(--font-display);
+  cursor: pointer;
+}
+
+.news-more:hover {
+  border-color: var(--lagoon);
+}
+
+.news-item:focus {
+  outline: none;
+}
