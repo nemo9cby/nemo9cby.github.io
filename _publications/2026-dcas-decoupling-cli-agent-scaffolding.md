@@ -6,7 +6,7 @@ venue: ASE 2026
 status: Industry Showcase
 authors: Kishanthan Thangarajah, Boyuan Chen, Ahmed E. Hassan
 paperurl: https://arxiv.org/abs/2608.06113
-excerpt: An interception layer that decouples CLI coding-agent scaffolds from models, so planning-aware trajectories transfer across Claude Code, OpenCode and OpenHands.
+excerpt: An interception layer that decouples CLI coding-agent scaffolds from models; planning learned from Claude Code trajectories transfers to OpenCode and mini-swe-agent.
 links:
 - label: Models
   url: https://huggingface.co/kishanthan/models

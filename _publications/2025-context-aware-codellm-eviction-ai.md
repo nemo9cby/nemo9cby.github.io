@@ -10,8 +10,6 @@ excerpt: Context-aware model eviction for self-hosted, multi-model code-LLM serv
 links:
 - label: arXiv
   url: https://arxiv.org/abs/2506.18796
-- label: Artifact
-  url: https://figshare.com/s/1a30559050bc43d5fefd
 - label: Program
   url: https://conf.researchr.org/details/ase-2025/ase-2025-industry-showcase/16/Context-Aware-CodeLLM-Eviction-for-AI-assisted-Coding
 ---

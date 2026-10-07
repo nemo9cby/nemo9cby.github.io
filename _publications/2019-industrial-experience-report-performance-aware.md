@@ -11,5 +11,5 @@ links:
 - label: PDF
   url: https://www.eecs.yorku.ca/~zmjiang/publications/ase2019_chen.pdf
 - label: Program
-  url: https://2019.ase-conferences.org/details/ase-2019-papers/62/An-Industrial-Experience-Report-on-Performance-Aware-Refactoring-on-a-Database-centri
+  url: https://2019.aseconf.org/details/ase-2019-papers/62/An-Industrial-Experience-Report-on-Performance-Aware-Refactoring-on-a-Database-centri
 ---

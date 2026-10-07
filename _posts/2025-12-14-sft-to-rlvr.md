@@ -18,18 +18,22 @@ and future directions with GRAPE 这篇报告的思考和笔记，也强烈建�
 
 对于第 $t$ 个 token，现有模型 $\theta$ 在当前上下文 $$\vec{s}_t$$ 下生成正确 token $a_t$ 的概率是 $\pi_\theta(a_t \mid \vec{s}_t)$。我们当然希望这个概率越大越好。
 对于一整句话，假设每个 token 相对独立，那么生成这句“标准答案”的概率就是所有 token 概率的乘积：（这里我们假设t从1开始，但实际上t应该从prompt后的第一个token开始）
+
 $$ P(\text{Whole Sequence}) = \prod_{t=1}^{T} \pi_\theta(a_t \mid \vec{s}_t) $$
 
-我们的理论目标是让这个概率接近 1。但由于每个 token 的概率通常很小（比如 0.01），连乘之后数值会无限接近于 0，导致计算机浮点数溢出。所以我们**取对数（Log）把乘法变加法，再取负号变成最小化问题，这就构成了梯度下降的 Loss：
+我们的理论目标是让这个概率接近 1。但由于每个 token 的概率通常很小（比如 0.01），连乘之后数值会无限接近于 0，导致计算机浮点数溢出。所以我们**取对数（Log）把乘法变加法，再取负号变成最小化问题**，这就构成了梯度下降的 Loss：
+
 $$ Loss = - \sum_{t=1}^{T} \log(\pi_\theta(a_t \mid \vec{s}_t)) $$
 
 如果把一堆样本 Batch 在一起（假设有 $S$ 个样本），平均 Loss 就是：
+
 $$ \mathcal{L}_{SFT} = \frac{1}{S} \sum_{i=1}^{S} NLL(\vec{text}_i, \theta) $$
 
 ### 2. REINFORCE：给好学生“加鸡腿”
 SFT 的问题在于：**它平等地对待了每一个样本。**
 但在实际生成中，有的回答是完美的，有的是一般的，甚至我们希望模型能从“负样本”中吸取教训。
 于是，我们很自然地想到给 Loss 加一个**权重（Reward）**：
+
 $$ \mathcal{L}_{RL} = \frac{1}{S} \sum_{i=1}^{S} R(\vec{text}_i) \cdot NLL(\vec{text}_i, \theta) $$
 
 这就是大名鼎鼎的 **REINFORCE 算法**。
@@ -43,6 +47,7 @@ $$ \mathcal{L}_{RL} = \frac{1}{S} \sum_{i=1}^{S} R(\vec{text}_i) \cdot NLL(\vec{
 比如把 (1001, 999) 减去基线 1000，变成 (+1, -1)。这样梯度就稳定多了。
 
 改进后的 Loss 公式（引入 Advantage）：
+
 $$ Loss = -\frac{1}{S} \sum_{i=1}^{S} \sum_{t=1}^{T} \underbrace{\left( R(\vec{text}_i) - V_M(\vec{s}_{it}) \right)}_{\text{Advantage (A)}} \cdot \log\left( \pi_\theta(a_{it} \mid \vec{s}_{it}) \right) $$
 
 这里的 $R(\vec{text}_i)$ 是整段文本的最终得分，但基线 $$V_M(\vec{s}_{it})$$ 依赖于当前时刻 $t$ 的状态（即 prompt + 已经生成的 token）。

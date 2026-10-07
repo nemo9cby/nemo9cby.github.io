@@ -13,8 +13,12 @@ layout: default
   </header>
 
   {%- if page.youtube_id %}
-  <div class="video-embed">
-    <iframe src="https://www.youtube-nocookie.com/embed/{{ page.youtube_id }}" title="{{ page.title | escape }}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  {%- assign poster = page.poster | default: site.data.photos.first.id -%}
+  <div class="video-embed" data-video="{{ page.youtube_id }}" data-video-title="{{ page.title | escape }}">
+    <a class="video-embed__poster" href="https://www.youtube.com/watch?v={{ page.youtube_id }}">
+      {% include photo.html id=poster sizes="(min-width: 60rem) 56rem, 100vw" %}
+      <span class="video-embed__play">{% include icon.html name="play" %}Play video</span>
+    </a>
   </div>
   {%- endif %}
 

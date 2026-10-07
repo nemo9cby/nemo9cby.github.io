@@ -1,13 +1,13 @@
+{%- comment -%}
+  Talk card. The image is one of the site's own scenery photos (talk.poster, an id
+  from _data/photos.yml), never the YouTube thumbnail.
+{%- endcomment -%}
 {%- assign talk = include.talk -%}
-{%- assign href = talk.video | default: talk.link | default: talk.url | relative_url -%}
+{%- assign poster = talk.poster | default: site.data.photos.first.id -%}
 <article class="talk-card">
-  <a class="talk-card__media" href="{{ href }}"{% if talk.youtube_id %} aria-label="Watch {{ talk.title | escape }} on YouTube"{% endif %}>
-    {%- if talk.youtube_id %}
-      <img src="https://i.ytimg.com/vi/{{ talk.youtube_id }}/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
-      <span class="talk-card__play">{% include icon.html name="play" %}</span>
-    {%- elsif talk.image %}
-      <img src="{{ talk.image | relative_url }}" alt="" loading="lazy" decoding="async">
-    {%- endif %}
+  <a class="talk-card__media" href="{{ talk.url | relative_url }}" aria-label="{% if talk.youtube_id %}Watch: {% endif %}{{ talk.title | escape }}">
+    {% include photo.html id=poster sizes="(min-width: 56rem) 40vw, 100vw" alt="" %}
+    {%- if talk.youtube_id %}<span class="talk-card__play">{% include icon.html name="play" %}</span>{% endif %}
   </a>
   <div class="talk-card__body">
     <p class="talk-card__venue">{{ talk.venue }}{% if talk.date %}, {{ talk.date | date: "%B %Y" }}{% endif %}</p>

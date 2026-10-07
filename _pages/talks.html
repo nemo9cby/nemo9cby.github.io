@@ -10,6 +10,7 @@ author_profile: true
 {% assign featured = talks | where: "featured", true %}
 
 {% if featured.size > 0 %}
+<h2 class="visually-hidden">Featured talks</h2>
 <div class="talk-cards talk-cards--page">
   {%- for talk in featured limit: 2 %}
     {% include talk-card.html talk=talk %}

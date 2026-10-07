@@ -1,5 +1,5 @@
 ---
-title: Can I use this publicly available dataset to build commercial AI software? -- A Case Study on Publicly Available Image Datasets
+title: Can I use this publicly available dataset to build commercial AI software? – A Case Study on Publicly Available Image Datasets
 collection: publications
 date: '2021-11-03'
 venue: arXiv 2021

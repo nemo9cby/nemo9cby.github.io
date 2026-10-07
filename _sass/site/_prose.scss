@@ -161,3 +161,18 @@
 .highlight .o, .highlight .p { color: #c6d4de; }
 .highlight .nb, .highlight .bp { color: #e7a6c9; }
 .highlight .err { color: inherit; background: none; }
+
+/* Long bare URLs wrap instead of widening the page on phones. */
+.prose {
+  overflow-wrap: break-word;
+}
+
+.prose a {
+  overflow-wrap: anywhere;
+}
+
+/* Chinese has no true italics: use a Kai (brush) face instead of slanting. */
+:lang(zh) em {
+  font-style: normal;
+  font-family: "Kaiti SC", STKaiti, KaiTi, "Kaiti TC", var(--font-text);
+}

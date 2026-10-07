@@ -30,7 +30,7 @@ Research and technical leader with industrial-scale LLM post-training experience
 
 <div markdown="1">
 <div class="cv-entry" markdown="1">
-<div class="cv-entry__head"><h3>Huawei Canada, Centre for Software Excellence</h3><span class="cv-entry__when">Markham, ON</span></div>
+<div class="cv-entry__head"><h3>Huawei Canada, Centre for Software Excellence</h3><span class="cv-entry__when">Dec 2022 – present</span></div>
 <p class="cv-entry__role">Senior Principal Researcher &amp; Technical Lead, May 2026 – present<br>Senior Researcher → Principal Researcher, Dec 2022 – Apr 2026</p>
 
 - **Industrial-scale post-training.** Lead about 20 researchers and engineers across Pangu code-model SFT and RL for 8B–718B models, coordinating data curation, environments, NPU training and agent evaluation.
@@ -72,7 +72,7 @@ Built a Hadoop/Python framework to analyze distributed-system logs and detect lo
 <div markdown="1">
 <div class="cv-entry" markdown="1">
 <div class="cv-entry__head"><h3>York University</h3><span class="cv-entry__when">Sep 2014 – Oct 2020</span></div>
-<p class="cv-entry__role">Ph.D., Computer Engineering</p>
+<p class="cv-entry__role">Ph.D. (2020) and M.A.Sc. (2017), Computer Engineering</p>
 
 Advised by [Zhen Ming (Jack) Jiang](https://www.eecs.yorku.ca/~zmjiang/). NSERC Canada Graduate Scholarship – Doctoral (CGS-D).
 </div>
@@ -89,9 +89,9 @@ Advised by [Zhen Ming (Jack) Jiang](https://www.eecs.yorku.ca/~zmjiang/). NSERC 
 
 <div markdown="1">
 {% assign talks = site.talks | sort: "date" | reverse %}
-{% for talk in talks %}
-- [{{ talk.title }}]({{ talk.url | relative_url }}). {{ talk.venue }}, {{ talk.date | date: "%Y" }}{% if talk.role %}. {{ talk.role }}{% endif %}.
-{% endfor %}
+{%- for talk in talks %}
+- [{{ talk.title }}]({{ talk.url | relative_url }}). {{ talk.venue }}{% if talk.role %}. {{ talk.role }}{% endif %}.
+{%- endfor %}
 - Program Committee, ASE 2024 (Research Papers).
 - Curriculum Committee, AIware Leadership Bootcamp 2024, AIware Bootcamp Mini 2025 and AIware Bootcamp Europe 2025.
 - Reviewer, IEEE Transactions on Software Engineering (2021–2025).
@@ -103,7 +103,7 @@ Advised by [Zhen Ming (Jack) Jiang](https://www.eecs.yorku.ca/~zmjiang/). NSERC 
 
 <div markdown="1">
 {% assign pubs = site.publications | sort: "date" | reverse %}
-{{ pubs.size }} papers and preprints, listed on the [publications page]({{ '/publications/' | relative_url }}) and [Google Scholar]({{ site.author.googlescholar }}).
+{% assign theses = pubs | where_exp: "p", "p.venue contains 'thesis'" %}{{ pubs.size | minus: theses.size }} papers and preprints and {{ theses.size }} theses, listed on the [publications page]({{ '/publications/' | relative_url }}) and [Google Scholar]({{ site.author.googlescholar }}).
 </div>
 </section>
 

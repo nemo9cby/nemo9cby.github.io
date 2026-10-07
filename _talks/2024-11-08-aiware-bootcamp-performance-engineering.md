@@ -7,6 +7,7 @@ date: 2024-11-08
 location: "Toronto, Canada"
 role: "Speaker, with Haoxiang Zhang"
 youtube_id: C2VDrgheY-0
+poster: DSC01171
 video: "https://www.youtube.com/watch?v=C2VDrgheY-0"
 links:
   - label: "Bootcamp"

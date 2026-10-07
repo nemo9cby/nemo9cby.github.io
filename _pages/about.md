@@ -30,19 +30,19 @@ I received my Ph.D. from York University, Canada, where I worked on software eng
 
 ## News
 
-**2026-08-31**: New paper, accepted to the EMNLP 2026 Industry Track! *LLM Post-Training as Brownfield Maintenance* treats industrial post-training as maintaining a deployed checkpoint through budgeted data-mixture patches, and distills what makes that hard. Check it out [here](https://arxiv.org/abs/2608.31102).
+**2026-08-31**: New paper, now accepted to the EMNLP 2026 Industry Track! *LLM Post-Training as Brownfield Maintenance* treats industrial post-training as maintaining a deployed checkpoint through budgeted data-mixture patches, and distills what makes that hard. Check it out [here](https://arxiv.org/abs/2608.31102).
 
-**2026-08-06**: New paper, accepted to the ASE 2026 Industry Showcase! *DCAS* decouples CLI agent scaffolds from models, so planning skills learned in one scaffold carry over to Claude Code, OpenCode and OpenHands. Check it out [here](https://arxiv.org/abs/2608.06113).
+**2026-08-06**: New paper, now accepted to the ASE 2026 Industry Showcase! *DCAS* decouples CLI agent scaffolds from the models behind them: a model fine-tuned on planning-aware trajectories collected under Claude Code also improves under OpenCode and mini-swe-agent. Check it out [here](https://arxiv.org/abs/2608.06113).
 
 **2026-07-29**: Introducing MindForge, which teaches small language models whole-life-cycle software engineering through source-free program synthesis. Fine-tuning Qwen3.6-27B on 973 curated trajectories lifts the ProgramBench average test pass rate from 37.98% to 49.51%. The [model](https://huggingface.co/centre-for-swe/MindForge-27B) and [training trajectories](https://huggingface.co/datasets/centre-for-swe/MindForge-27B-Training-Trajectories) are on Hugging Face. Check it out [here](https://arxiv.org/abs/2607.27146).
 
-**2026-06-12**: New paper, accepted to AACL-IJCNLP 2026! *Beyond Correctness* uses agentic judges to curate architecture-aware training data for code LLMs. Check it out [here](https://arxiv.org/abs/2606.14948).
+**2026-06-12**: New paper, now accepted to AACL-IJCNLP 2026! *Beyond Correctness* uses agentic judges to curate architecture-aware training data for code LLMs. Check it out [here](https://arxiv.org/abs/2606.14948).
 
 **2026-04-16**: We presented a technical briefing on Software Engineering for Foundation Models (SE4FM) at ICSE 2026. Details [here](/talks/2026-04-16-icse-se4fm-briefing/).
 
 **2026-02-05**: New paper on hidden biases in Codeforces-based evaluation of LLMs, now accepted to the ASE 2026 Industry Showcase. *When Elo Lies* shows that submission order alone can shift a model's Elo by 394 points. Check it out [here](https://arxiv.org/abs/2602.05891).
 
-**2026-02-03**: New paper, accepted to EMNLP 2026! *Beyond Tokens* speeds up reasoning models with semantic-aware speculative decoding, verifying whole semantic steps instead of single tokens (up to 2.7× faster on DeepSeek-R1-32B). Check it out [here](https://arxiv.org/abs/2602.03708).
+**2026-02-03**: New paper, now accepted to EMNLP 2026! *Beyond Tokens* speeds up reasoning models with semantic-aware speculative decoding, verifying whole semantic steps instead of single tokens (up to 2.7× faster on DeepSeek-R1-32B). Check it out [here](https://arxiv.org/abs/2602.03708).
 
 **2025-11-05**: We gave a lightning talk at Ray Summit 2025 on boosting vLLM inference on Huawei NPUs with Ray Compiled Graphs. Watch it [here](/talks/2025-11-05-ray-summit-vllm-npu-compiled-graphs/).
 
@@ -54,7 +54,7 @@ I received my Ph.D. from York University, Canada, where I worked on software eng
 
 **2025-06-23**: New preprint on CodeLLM model management! We present CACE (Context-Aware CodeLLM Eviction), a novel eviction strategy for self-hosted CodeLLM serving. Unlike traditional LRU-based approaches, CACE leverages context-aware factors including model load time, task-specific latency sensitivity, and future demand prediction. Our experiments show CACE significantly reduces Time-to-First-Token (TTFT) and end-to-end latency while lowering model evictions compared to state-of-the-art systems. Check it out [here](https://arxiv.org/abs/2506.18796).
 
-**2025-03-28**: We released our recent work on performance enhancement for AI-Native Coding. This work focuses on the Service Level Agreement of LLM serving for coding tasks. We present Coding Assistant Task Orchestrator (CATO), the first SLA-aware algorithms for LLM serving that's been internally deployed into Huawei Cloud and on Ascend NPU clusters. CATO intelligently orchestrates CodeLLMs to meet diverse coding tasks' unique latency requirements while maximizing resource utilization. Compared to model-centric serving approaches (e.g., Ray Serve), we have achieved up to 41.4% improvement on goodput. Check it out [here](https://arxiv.org/pdf/2503.19876).
+**2025-03-28**: We released our recent work on performance enhancement for AI-Native Coding. This work focuses on the Service Level Agreement of LLM serving for coding tasks. We present Coding Assistant Task Orchestrator (CATO), the first SLA-aware algorithms for LLM serving that's been internally deployed into Huawei Cloud and on Ascend NPU clusters. CATO intelligently orchestrates CodeLLMs to meet diverse coding tasks' unique latency requirements while maximizing resource utilization. Compared to model-centric serving approaches (e.g., Ray Serve), we have achieved up to 10% higher goodput and 41.1% higher resource utilization. Check it out [here](https://arxiv.org/pdf/2503.19876).
 
 **2024-10-08**: New vision paper on the future of software engineering! We propose "SE 3.0", an AI-native paradigm shift from task-driven copilots to intent-first, conversation-oriented development with AI teammates. This paper outlines a roadmap of challenges to realize truly intelligent AI collaborators that understand software engineering principles and developer intents. Read it [here](https://arxiv.org/abs/2410.06107).
 

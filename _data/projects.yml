@@ -16,14 +16,6 @@
       repo: "https://github.com/nemo9cby/gstack-in-plain-words"
       year: 2026
       text: "A short book on the thinking behind each gstack AI-workflow skill, without the code."
-    - name: "Humanizer A/B log"
-      url: "/humanizer/"
-      year: 2026
-      text: "Before-and-after comparisons of AI-generated text run through a humanizer pipeline."
-    - name: "GTA housing market dashboard"
-      url: "/realmaster/"
-      year: 2026
-      text: "An interactive look at the Greater Toronto Area real-estate market (in Chinese)."
 - group: "Tools"
   items:
     - name: "hf_viewer"

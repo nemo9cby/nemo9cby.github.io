@@ -7,6 +7,7 @@ date: 2020-07-07
 location: "Online"
 role: "Speaker"
 youtube_id: 6I9Pn6XoRR0
+poster: DSC01521
 video: "https://www.youtube.com/watch?v=6I9Pn6XoRR0"
 links:
   - label: "Paper"

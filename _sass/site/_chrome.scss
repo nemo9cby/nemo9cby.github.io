@@ -216,3 +216,9 @@ html:not(.js) .site-nav--overlay {
 .site-footer a:focus-visible {
   outline-color: var(--shallows);
 }
+
+/* Over the photo the default lagoon focus ring disappears; use white. */
+.site-nav--overlay:not(.is-solid) a:focus-visible,
+.site-nav--overlay:not(.is-solid) button:focus-visible {
+  outline-color: #fff;
+}

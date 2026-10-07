@@ -3,9 +3,13 @@ layout: default
 ---
 {%- assign is_post = false -%}
 {%- if page.collection == 'posts' -%}{%- assign is_post = true -%}{%- endif -%}
-<article class="page article{% if is_post %} article--post{% endif %}">
+{%- comment -%} Mostly-Chinese pages get lang="zh-CN" (front matter `lang:` overrides). {%- endcomment -%}
+{%- assign zh_stops = content | split: '。' | size -%}
+{%- assign text_lang = page.lang -%}
+{%- if text_lang == nil and zh_stops > 8 -%}{%- assign text_lang = 'zh-CN' -%}{%- endif -%}
+<article class="page article{% if is_post %} article--post{% endif %}"{% if text_lang %} lang="{{ text_lang }}"{% endif %}>
   <header class="page-head">
-    <h1 class="page-head__title">{{ page.title | markdownify | remove: '<p>' | remove: '</p>' | strip }}</h1>
+    <h1 class="page-head__title">{{ page.title | markdownify | remove: '<p>' | remove: '</p>' | strip | replace: ' - ', '&nbsp;– ' }}</h1>
     {%- if page.lede %}
     <p class="page-head__lede">{{ page.lede }}</p>
     {%- endif %}

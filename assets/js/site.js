@@ -44,6 +44,10 @@
     document.addEventListener('click', function (event) {
       if (nav.classList.contains('is-open') && !nav.contains(event.target)) setOpen(false);
     });
+    /* Tabbing past the last link closes the panel so focus is never hidden behind it. */
+    nav.addEventListener('focusout', function (event) {
+      if (nav.classList.contains('is-open') && event.relatedTarget && !nav.contains(event.relatedTarget)) setOpen(false);
+    });
   }
 
   /* Lightbox for [data-gallery] links. Without JS the links open the image itself. */
@@ -152,9 +156,30 @@
     news.appendChild(button);
   }
 
+  /* Talk videos: show our own poster; load the YouTube player only on request. */
+  function initVideos() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-video]'), function (box) {
+      var link = box.querySelector('a');
+      if (!link) return;
+      link.addEventListener('click', function (event) {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;
+        event.preventDefault();
+        var frame = document.createElement('iframe');
+        frame.src = 'https://www.youtube-nocookie.com/embed/' + box.getAttribute('data-video') + '?autoplay=1';
+        frame.title = box.getAttribute('data-video-title') || 'Video';
+        frame.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+        frame.referrerPolicy = 'strict-origin-when-cross-origin';
+        frame.allowFullscreen = true;
+        box.replaceChild(frame, link);
+        frame.focus();
+      });
+    });
+  }
+
   ready(function () {
     initNav();
     initLightbox();
     initNews();
+    initVideos();
   });
 })();

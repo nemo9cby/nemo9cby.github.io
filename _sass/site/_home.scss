@@ -266,7 +266,9 @@
 
 .statement__line {
   display: block;
-  padding-bottom: 0.04em;
+  /* room for descenders: background-clip paints only inside the box */
+  padding-bottom: 0.18em;
+  margin-bottom: -0.14em;
   color: var(--ink);
 }
 
@@ -274,7 +276,7 @@
   .statement__line {
     color: transparent;
     background-color: var(--ink);
-    background-image: linear-gradient(rgba(18, 33, 46, 0.18), rgba(18, 33, 46, 0.18)), var(--fill-sm);
+    background-image: linear-gradient(var(--scrim), var(--scrim)), var(--fill-sm);
     background-position: center, var(--fill-pos);
     background-size: cover;
     background-repeat: no-repeat;
@@ -284,7 +286,7 @@
 
   @media (min-width: 48rem) {
     .statement__line {
-      background-image: linear-gradient(rgba(18, 33, 46, 0.18), rgba(18, 33, 46, 0.18)), var(--fill-lg);
+      background-image: linear-gradient(var(--scrim), var(--scrim)), var(--fill-lg);
     }
   }
 }
@@ -654,4 +656,10 @@
 
 .news-item:focus {
   outline: none;
+}
+
+/* Closing line after the Selected Publications list. */
+.prose-band .prose > ul + p {
+  margin-top: 2.25rem;
+  padding-left: calc(1.5rem + 2px);
 }
