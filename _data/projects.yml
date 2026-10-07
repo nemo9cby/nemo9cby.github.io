@@ -34,6 +34,10 @@
       repo: "https://github.com/nemo9cby/claude-code-doc-monitor"
       year: 2026
       text: "Watches the Claude Code documentation and reports what changed."
+    - name: "SkiAll"
+      repo: "https://github.com/nemo9cby/SkiAll"
+      year: 2026
+      text: "One hub for the agent skills I use across my machines."
     - name: "rl-from-scratch"
       repo: "https://github.com/nemo9cby/rl-from-scratch"
       year: 2025

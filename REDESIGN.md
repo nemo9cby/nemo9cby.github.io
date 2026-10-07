@@ -30,6 +30,8 @@ Branch: `redesign` (based on `origin/master` @ 5f84d3f). Nothing has been pushed
 - CATO News item: numbers corrected to the paper (10% goodput, 41.1%
   utilization); the 'internally deployed into Huawei Cloud / Ascend' claim stays (OK'd).
 - About portrait (images/profile.png) kept.
+- ICSE 2017 and ASE 2018 talks are listed with you as speaker (first author;
+  the programs don't name presenters). Correct if someone else presented.
 - `site.url` stays https://chenboyuan.com (apex) so feed entry ids don't change.
 - Photos: only scenery, no people (6 frames approved on 2026-10-06).
 

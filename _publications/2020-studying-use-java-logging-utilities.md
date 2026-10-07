@@ -12,4 +12,6 @@ links:
   url: https://www.eecs.yorku.ca/~zmjiang/publications/icse2020_chen.pdf
 - label: Video
   url: https://www.youtube.com/watch?v=6I9Pn6XoRR0
+- label: Data (archived)
+  url: https://web.archive.org/web/20221207093348/https://www.eecs.yorku.ca/~chenfsd/resources/icse2020_replication.zip
 ---

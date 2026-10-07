@@ -10,4 +10,6 @@ excerpt: 'A survey of research on software log instrumentation: logging approach
 links:
 - label: PDF
   url: https://www.eecs.yorku.ca/~zmjiang/publications/csur2021_chen.pdf
+- label: Data (archived)
+  url: https://web.archive.org/web/20220223091231/https://www.eecs.yorku.ca/~chenfsd/resources/survey.zip
 ---

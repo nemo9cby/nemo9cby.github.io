@@ -12,4 +12,8 @@ links:
   url: https://arxiv.org/abs/2506.18796
 - label: Program
   url: https://conf.researchr.org/details/ase-2025/ase-2025-industry-showcase/16/Context-Aware-CodeLLM-Eviction-for-AI-assisted-Coding
+- label: Project page
+  url: https://cace-swap.github.io/
+- label: Slides
+  url: https://github.com/cace-swap/cace-swap.github.io/blob/main/CACE_ASE_Industry_2025_Slides.pdf
 ---

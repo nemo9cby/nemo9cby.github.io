@@ -10,4 +10,6 @@ excerpt: Extracts and studies logging-code-issue-introducing changes in six larg
 links:
 - label: PDF
   url: https://www.eecs.yorku.ca/~zmjiang/publications/emse2019_chen.pdf
+- label: Data (archived)
+  url: https://web.archive.org/web/20240112141649/http://www.cse.yorku.ca/~zmjiang/share/replication_package/emse2018_chen/replication_package.zip
 ---

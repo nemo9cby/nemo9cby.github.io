@@ -10,4 +10,6 @@ excerpt: Outlines doctoral research on improving logging practices across develo
 links:
 - label: Program
   url: https://2019.icse-conferences.org/details/icse-2019-Doctoral-Symposium/21/Improving-the-software-logging-practices-in-DevOps
+- label: PDF (archived)
+  url: https://web.archive.org/web/20220128160022id_/https://nemo9cby.github.io/resources/pubs/ds_icse_2019_chen.pdf
 ---

@@ -96,6 +96,7 @@ Advised by [Zhen Ming (Jack) Jiang](https://www.eecs.yorku.ca/~zmjiang/). NSERC 
 - Curriculum Committee, AIware Leadership Bootcamp 2024, AIware Bootcamp Mini 2025 and AIware Bootcamp Europe 2025.
 - Reviewer, IEEE Transactions on Software Engineering (2021–2025).
 - Reviewer, Empirical Software Engineering (2026).
+- Co-reviewer during Ph.D.: ICSE-SEIP 2015, ICSME 2017 and 2018, TSE 2018, JSS 2019.
 </div>
 </section>
 

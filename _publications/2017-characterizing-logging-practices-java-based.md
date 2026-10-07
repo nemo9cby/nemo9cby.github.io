@@ -10,4 +10,6 @@ excerpt: Replicates Yuan et al.'s logging-practice study on 21 Java projects fro
 links:
 - label: PDF
   url: https://www.eecs.yorku.ca/~zmjiang/publications/emse2016_chen.pdf
+- label: Data (675 MB, archived)
+  url: https://web.archive.org/web/20240119175057/http://www.cse.yorku.ca/~zmjiang/share/replication_package/emse2016_chen/replication_package.zip
 ---

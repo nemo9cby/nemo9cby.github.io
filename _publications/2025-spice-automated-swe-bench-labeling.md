@@ -12,4 +12,6 @@ links:
   url: https://arxiv.org/abs/2507.09108
 - label: Program
   url: https://conf.researchr.org/details/ase-2025/ase-2025-papers/209/SPICE-An-Automated-SWE-Bench-Labeling-Pipeline-for-Issue-Clarity-Test-Coverage-an
+- label: Code and data
+  url: https://github.com/SAILResearch/SPICEBench
 ---
