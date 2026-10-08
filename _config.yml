@@ -210,11 +210,7 @@ collections:
 
 # Defaults
 defaults:
-  # standalone apps: keep them out of sitemap.xml (they are not linked from the site)
-  - scope:
-      path: "humanizer"
-    values:
-      sitemap: false
+  # standalone app: keep it out of sitemap.xml (they are not linked from the site)
   - scope:
       path: "realmaster"
     values:
