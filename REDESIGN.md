@@ -39,6 +39,9 @@ Branch: `redesign` (based on `origin/master` @ 5f84d3f). Nothing has been pushed
 
 ## /humanizer/ and /realmaster/ (diagnosed 2026-10-07, not yet changed)
 ### humanizer
+- 2026-10-07: removed from the site on `redesign` (7e1f0c9); gateway cron job
+  49a1362b ("Sync Humanizer Page to GitHub Pages") disabled. Re-enable with
+  `openclaw cron enable 49a1362b-9c13-45c6-8dbc-c4e065ba3f3d` on the gateway Mac.
 - Publisher: OpenClaw cron agent turn "Sync Humanizer Page to GitHub Pages" (daily 23:00)
   on the gateway Mac (Nemos-MacBook-Pro-4584.local, likely Nemo-mbp15). Not on this Mac.
 - Blank page: data is spliced into `const DATA` through a step that turns `\n` escapes
